@@ -131,7 +131,8 @@ CREATE TABLE violation (
 	from_hours_in_effect VARCHAR(5),
 	to_hours_in_effect VARCHAR(5),
 	violation_post_code VARCHAR(6),
-	violation_description MEDIUMTEXT
+	violation_description MEDIUMTEXT,
+    PRIMARY KEY (summons_number)
 ) ENGINE=INNODB;
 
 
@@ -185,3 +186,5 @@ SELECT COUNT(*) FROM registration;
 SELECT COUNT(*) FROM vehicle;
 SELECT COUNT(*) FROM issuer;
 SELECT COUNT(*) FROM violation;
+
+SELECT * FROM violation;
