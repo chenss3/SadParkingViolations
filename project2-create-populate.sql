@@ -155,6 +155,18 @@ SELECT DISTINCT
 	vehicle_year
 FROM ParkingViolationsMegaTable;
 
+INSERT INTO location 
+SELECT DISTINCT street_code1, 
+	street_code2,
+	street_code3,
+	house_number,
+	street_name,
+	intersecting_street,
+	subdivision,
+	meter_number,
+	feet_from_curb
+FROM ParkingViolationsMegaTable;
+
 INSERT INTO issuer
 SELECT DISTINCT issuer_code,
 	issuing_agency,
@@ -186,5 +198,18 @@ SELECT COUNT(*) FROM registration;
 SELECT COUNT(*) FROM vehicle;
 SELECT COUNT(*) FROM issuer;
 SELECT COUNT(*) FROM violation;
+SELECT COUNT(*) FROM location;
 
 SELECT * FROM violation;
+
+
+
+-- trigger ideas:
+
+-- SP ideas: 
+
+
+
+
+
+
