@@ -104,6 +104,16 @@ CREATE TABLE location (
 	feet_from_curb VARCHAR(4)
 ) ENGINE=INNODB;
 
+-- issuer
+DROP TABLE IF EXISTS issuer;
+CREATE TABLE issuer (
+	issuer_code VARCHAR(7),
+	issuing_agency CHAR(1),
+	issuer_precinct SMALLINT,
+	issuer_command VARCHAR(10),
+	issuer_squad VARCHAR(4)
+) ENGINE=INNODB;
+
 -- violation
 DROP TABLE IF EXISTS violation;
 CREATE TABLE violation (
@@ -124,18 +134,54 @@ CREATE TABLE violation (
 	violation_description MEDIUMTEXT
 ) ENGINE=INNODB;
 
--- issuer
-DROP TABLE IF EXISTS issuer;
-CREATE TABLE issuer (
-	issuer_code VARCHAR(7),
-	issuing_agency CHAR(1),
-	issuer_precinct SMALLINT,
-	issuer_command VARCHAR(10),
-	issuer_squad VARCHAR(4)
-) ENGINE=INNODB;
 
+-- populate the tables. 
+INSERT INTO registration
+SELECT DISTINCT plate_id,
+	registration_state,
+    issue_date,
+    plate_type
+FROM ParkingViolationsMegaTable;
+-- DELETE FROM registration;
 
+INSERT INTO vehicle
+SELECT DISTINCT 
+	vehicle_body_type,
+    vehicle_make,
+    vehicle_expiration_date,
+	vehicle_color,
+	unregistered_vehicle,
+	vehicle_year
+FROM ParkingViolationsMegaTable;
 
+INSERT INTO issuer
+SELECT DISTINCT issuer_code,
+	issuing_agency,
+	issuer_precinct,
+	issuer_command,
+	issuer_squad
+FROM ParkingViolationsMegaTable;
 
+INSERT INTO violation
+SELECT DISTINCT summons_number,
+	violation_code,
+	violation_location,
+	violation_precinct,
+	violation_time,
+	violation_county,
+	violation_front_opposite,
+	violation_legal_code,
+	time_first_observed,
+	date_first_observed,
+	days_parking_in_effect,
+	from_hours_in_effect,
+	to_hours_in_effect,
+	violation_post_code,
+	violation_description
+FROM ParkingViolationsMegaTable;
 
-
+SELECT COUNT(*) FROM ParkingViolationsMegaTable;
+SELECT COUNT(*) FROM registration;
+SELECT COUNT(*) FROM vehicle;
+SELECT COUNT(*) FROM issuer;
+SELECT COUNT(*) FROM violation;
