@@ -25,7 +25,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Insert</a>
+                                <a href="Insert.php" class="nav-link">Insert</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">Update</a>
@@ -40,10 +40,10 @@
         </div>
         <div class ="main">
             <div class="main-image">
-                <img src="city-street.jpeg" height=505px width="fit-content">
+                <img src="city-street.jpeg" height=502px width="fit-content">
                 <div class="centerblock"> 
                     <div class="square" top=100px>
-                        <h4><b>NYC Traffic Violations</b></h4>
+                        <h4><b>NYC Parking Violations</b></h4>
                     </div> 
                 </div> 
             </div>

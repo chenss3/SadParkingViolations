@@ -69,3 +69,7 @@ h4{
     word-wrap: break-word;
     white-space: normal;
 }
+
+h2{
+    top:100px
+}
