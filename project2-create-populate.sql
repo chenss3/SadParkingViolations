@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number VARCHAR(20)
                                                       violation_location VARCHAR(5),
                                                       violation_precinct SMALLINT,
                                                       issuer_precinct SMALLINT,
-                                                      issuer_code VARCHAR(7),
+                                                      issuer_code BIGINT,
                                                       issuer_command VARCHAR(10),
                                                       issuer_squad VARCHAR(4),
                                                       violation_time CHAR(5),
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number VARCHAR(20)
 
 
 -- Loads the data
-LOAD DATA LOCAL INFILE 'C:/Users/jackw/Desktop/Vanderbilt/Y3/Database/project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
+LOAD DATA LOCAL INFILE '/Applications/MAMP/htdocs/Project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
 INTO TABLE ParkingViolationsMegaTable
 FIELDS TERMINATED BY ',' 
 OPTIONALLY ENCLOSED BY '"'
@@ -73,26 +73,33 @@ LIMIT 20;
 -- registration table
 DROP TABLE IF EXISTS registration;
 CREATE TABLE registration (
+	summons_number VARCHAR(20),
 	plate_id VARCHAR(20),
 	registration_state CHAR(2),
     issue_date CHAR(10),
-    plate_type CHAR(3)
+    plate_type CHAR(3),
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn UNIQUE(summons_number)
 ) ENGINE=INNODB;
 
 -- vehicle
 DROP TABLE IF EXISTS vehicle;
 CREATE TABLE vehicle (
+	summons_number VARCHAR(20),
 	vehicle_body_type VARCHAR(4),
     vehicle_make VARCHAR(10),
     vehicle_expiration_date VARCHAR(10),
 	vehicle_color VARCHAR(15),
 	unregistered_vehicle VARCHAR(4),
-	vehicle_year VARCHAR(4)
+	vehicle_year VARCHAR(4),
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn2 UNIQUE(summons_number)
 ) ENGINE=INNODB;
 
 -- location
 DROP TABLE IF EXISTS location;
 CREATE TABLE location (
+	summons_number VARCHAR(20),
 	street_code1 INT, 
 	street_code2 INT,
 	street_code3 INT,
@@ -101,17 +108,22 @@ CREATE TABLE location (
 	intersecting_street VARCHAR(20),
 	subdivision VARCHAR(2),
 	meter_number VARCHAR(8),
-	feet_from_curb VARCHAR(4)
+	feet_from_curb VARCHAR(4),
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn3 UNIQUE(summons_number)
 ) ENGINE=INNODB;
 
 -- issuer
 DROP TABLE IF EXISTS issuer;
 CREATE TABLE issuer (
+	summons_number VARCHAR(20),
 	issuer_code VARCHAR(7),
 	issuing_agency CHAR(1),
 	issuer_precinct SMALLINT,
 	issuer_command VARCHAR(10),
-	issuer_squad VARCHAR(4)
+	issuer_squad VARCHAR(4),
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn4 UNIQUE(summons_number)
 ) ENGINE=INNODB;
 
 -- violation
@@ -132,13 +144,14 @@ CREATE TABLE violation (
 	to_hours_in_effect VARCHAR(5),
 	violation_post_code VARCHAR(6),
 	violation_description MEDIUMTEXT,
-    PRIMARY KEY (summons_number)
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn5 UNIQUE(summons_number)
 ) ENGINE=INNODB;
-
 
 -- populate the tables. 
 INSERT INTO registration
-SELECT DISTINCT plate_id,
+SELECT DISTINCT summons_number,
+	plate_id,
 	registration_state,
     issue_date,
     plate_type
@@ -146,7 +159,7 @@ FROM ParkingViolationsMegaTable;
 -- DELETE FROM registration;
 
 INSERT INTO vehicle
-SELECT DISTINCT 
+SELECT DISTINCT summons_number,
 	vehicle_body_type,
     vehicle_make,
     vehicle_expiration_date,
@@ -156,7 +169,8 @@ SELECT DISTINCT
 FROM ParkingViolationsMegaTable;
 
 INSERT INTO location 
-SELECT DISTINCT street_code1, 
+SELECT DISTINCT summons_number,
+	street_code1, 
 	street_code2,
 	street_code3,
 	house_number,
@@ -168,7 +182,8 @@ SELECT DISTINCT street_code1,
 FROM ParkingViolationsMegaTable;
 
 INSERT INTO issuer
-SELECT DISTINCT issuer_code,
+SELECT DISTINCT summons_number,
+	issuer_code,
 	issuing_agency,
 	issuer_precinct,
 	issuer_command,
@@ -207,6 +222,8 @@ SELECT * FROM violation;
 -- trigger ideas:
 
 -- SP ideas: 
+
+
 
 
 

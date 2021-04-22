@@ -28,7 +28,7 @@
                                 <a href="issuer.php" class="nav-link">Issuer</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Update</a>
+                                <a href="Insert2.php" class="nav-link">Update</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">Delete</a>
