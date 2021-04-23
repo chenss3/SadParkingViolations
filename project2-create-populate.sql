@@ -204,12 +204,3 @@ SELECT * FROM violation;
 
 
 
--- trigger ideas:
-
--- SP ideas: 
-
-
-
-
-
-
