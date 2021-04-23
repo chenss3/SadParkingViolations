@@ -34,10 +34,10 @@
                                 <a href="issuer.php" class="nav-link">Issuer</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Update</a>
+                                <a href="location.php" class="nav-link">Location</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Delete</a>
+                                <a href="registration.php" class="nav-link">Registration</a>
                             </li>
                         </ul>
                     </div>
