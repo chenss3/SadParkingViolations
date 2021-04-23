@@ -19,7 +19,7 @@
         <div class="header">
             <div class="menu bar">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a href="index2.php" class="navbar-brand">DBProject</a>
+                    <a href="index2.php" class="navbar-brand" style="font-size: 26px">DBProject</a>
                     <button class="navbar-toggler toggler-example" type="button" data-toggle = "collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
@@ -34,10 +34,10 @@
                                 <a href="issuer.php" class="nav-link">Issuer</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Update</a>
+                                <a href="location.php" class="nav-link">Location</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Delete</a>
+                                <a href="registration.php" class="nav-link">Registration</a>
                             </li>
                         </ul>
                     </div>
