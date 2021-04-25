@@ -1,11 +1,6 @@
 <?php
 
-$dbhost = '127.0.0.1'; // localhost
-$dbuname = 'root'; //user name
-$dbpass = 'root'; //Password
-$dbname = 'parkingviolations'; //Database name
 
-$dbo = new PDO('mysql:host=' . $dbhost . ';port=8889;dbname=' . $dbname, $dbuname, $dbpass); 
 
 if (isset($_POST['insertlocationdata'])) {
 
@@ -19,6 +14,8 @@ if (isset($_POST['insertlocationdata'])) {
             . "VALUES (:summons_number, :plate_id, :registration_state, :issue_date, :plate_type)";
     try
     {
+        include('conn.php');
+        
         $prepared_stmt = $dbo->prepare($query);
         $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':plate_id', $var_plate_id, PDO::PARAM_STR);

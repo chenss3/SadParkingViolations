@@ -76,7 +76,6 @@
                                 <label>Violation Time</label>
                                 <input type="text" name = "violation_time" class="form-control" placeholder="Enter Violation Time">
                         </div>
-
                         <div class="form_group">
                                 <label>Violation County</label>
                                 <input type="text" name = "violation_county" class="form-control" placeholder="Enter Violation County">

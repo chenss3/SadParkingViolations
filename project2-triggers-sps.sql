@@ -1,10 +1,8 @@
+-- Sophia Chen and Jack Walton
+-- Sophia.s.chen@vanderbilt.edu and jack.s.walton@vanderbilt.edu
+-- Project 2
 
--- trigger ideas:
-
--- SP ideas: 
--- insert full incident data into database
-
-DROP PROCEDURE IF EXISTS insert_incident
+DROP PROCEDURE IF EXISTS insert_incident;
 
 DELIMITER // 
 
@@ -53,13 +51,15 @@ CREATE PROCEDURE insert_incident(
 
 BEGIN 
 	INSERT INTO registration
-	VALUES(plate_id,
+	VALUES(summons_number,
+    plate_id,
 	registration_state,
     issue_date,
     plate_type);
     
     INSERT INTO vehicle
-	VALUES(vehicle_body_type,
+	VALUES(summons_number,
+    vehicle_body_type,
     vehicle_make,
     vehicle_expiration_date,
 	vehicle_color,
@@ -67,7 +67,8 @@ BEGIN
 	vehicle_year);
     
     INSERT INTO location 
-	VALUES(street_code1, 
+	VALUES(summons_number,
+    street_code1, 
 	street_code2,
 	street_code3,
 	house_number,
@@ -78,7 +79,8 @@ BEGIN
 	feet_from_curb);
     
     INSERT INTO issuer
-	VALUES(issuer_code,
+	VALUES(summons_number,
+    issuer_code,
 	issuing_agency,
 	issuer_precinct,
 	issuer_command,
@@ -106,13 +108,13 @@ END //
 DELIMITER ;
 
 
--- validate vehicle
+-- validate that vehicle's expiration date is after the current date. 
 DROP TRIGGER IF EXISTS validate_vehicle;
 
 DELIMITER // 
 
 CREATE TRIGGER validate_vehicle
-AFTER INSERT ON vehicle
+BEFORE INSERT ON vehicle
 FOR EACH ROW 
 BEGIN 
 	IF NEW.vehicle_expiration_date < CURDATE() THEN 
@@ -123,9 +125,51 @@ END //
 DELIMITER ;
 
 
+-- TEST THE insert_incident STORED PROCEDURE
 
+-- call insert_incident(
+-- 	'1010011',
+-- 	'zzzyyyzzz',
+-- 	'TN',
+-- 	'PAS',
+-- 	'7/20/20',
+-- 	5,
+-- 	'TEST',
+-- 	'TEST',
+-- 	'V',
+-- 	'0',
+-- 	'0',
+-- 	'0',
+-- 	NULL,
+-- 	105,
+-- 	0,
+-- 	20,
+-- 	0,
+-- 	'T101',
+-- 	'J',
+-- 	'0144A',
+-- 	NULL,
+-- 	'BX',
+-- 	'O',
+-- 	'350',
+-- 	"Elmer's Way",
+-- 	"Clifford's Way",
+-- 	'0',
+-- 	1111,
+-- 	'D',
+-- 	'T',
+-- 	'Y',
+-- 	'0700P',
+-- 	'0700P',
+-- 	'GY',
+-- 	NULL,
+-- 	'2001',
+-- 	"12",
+-- 	'0',
+-- 	'4',
+-- 	'FIRE HYDRANT VIOLATION'
+-- );
 
-
-
-
-
+-- SELECT * 
+-- FROM issuer
+-- WHERE summons_number = '1010011';

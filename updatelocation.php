@@ -1,11 +1,6 @@
 <?php
 
-$dbhost = '127.0.0.1'; // localhost
-$dbuname = 'root'; //user name
-$dbpass = 'root'; //Password
-$dbname = 'parkingviolations'; //Database name
-
-$dbo = new PDO('mysql:host=' . $dbhost . ';port=8889;dbname=' . $dbname, $dbuname, $dbpass); 
+include('conn.php');
 
 if (isset($_POST['updatelocationdata'])) {
     $var_summons_number= $_POST['update_summons'];
