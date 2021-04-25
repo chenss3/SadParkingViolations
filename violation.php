@@ -47,7 +47,7 @@
     <div class="main" text-align="right">
         <div class="centerblock"> 
             <div class="square" style="background-color: #c0d7ed; left: 200px; width:650px; height: 400px; border-radius: 10px;">
-                <h4><b>Registration Table</b></h4>
+                <h4><b>Violation Table</b></h4>
             </div> 
         </div> 
         <div id="box1">
@@ -56,16 +56,16 @@
         </div>
     </div>
     <!-- Add Modal -->
-    <div class="modal fade" id="registrationaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="violationaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Registration Data</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Violation Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="insertregistration.php" method="POST">
+            <form action="insertviolation.php" method="POST">
                 <div class="modal-body">
                         <div class="form_group">
                                 <label>Summons Number</label>
@@ -76,8 +76,8 @@
                                 <input type="text" name = "plate_id" class="form-control" placeholder="Enter Plate ID">
                         </div>
                         <div class="form_group">
-                                <label>Registration State</label>
-                                <input type="text" name = "registration_state" class="form-control" placeholder="Enter Registration State">
+                                <label>Violation State</label>
+                                <input type="text" name = "violation_state" class="form-control" placeholder="Enter violation State">
                         </div>            
                         <div class="form_group">
                                 <label>Issue Date</label>
@@ -98,16 +98,16 @@
         </div>
     </div>
     <!-- Edit Modal -->
-    <div class="modal fade" id="registrationeditmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="violationeditmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Registration Data</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Violation Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="updateregistration.php" method="POST">
+            <form action="updateviolation.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="update_summons" id="update_summons">
                     <div class="form_group">
@@ -115,8 +115,8 @@
                             <input type="text" id="plate_id" name = "plate_id" class="form-control" placeholder="Enter Plate ID">
                     </div>
                     <div class="form_group">
-                            <label>Registration State</label>
-                            <input type="text" id="registration_state" name = "registration_state" class="form-control" placeholder="Enter Registration State">
+                            <label>Violation State</label>
+                            <input type="text" id="violation_state" name = "violation_state" class="form-control" placeholder="Enter Violation State">
                     </div>            
                     <div class="form_group">
                             <label>Issue Date</label>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" name = "updateregistrationdata" class="btn btn-primary">Update Data</button>
+                    <button type="submit" name = "updateviolationdata" class="btn btn-primary">Update Data</button>
                 </div>
             </form>
             </div>
@@ -138,7 +138,7 @@
     </div>
 
     <!-- Delete Modal -->
-    <div class="modal fade" id="registrationdeletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="violationdeletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -147,7 +147,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="deleteregistration.php" method="POST">
+                <form action="deleteviolation.php" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name = "delete_summons" id = "delete_summons"> 
                         <h5>Do you want to delete this data?</h5>
@@ -167,8 +167,8 @@
         <div class="jumbotron" style="background-color: #fff">
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrationaddmodal" style="background-color: #8EA4C8; border: none">
-                        Add Registration Data
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#violationaddmodal" style="background-color: #8EA4C8; border: none">
+                        Add Violation Data
                     </button>
                 </div>
             </div>
@@ -184,7 +184,7 @@
 
                                 <th scope="col" style="background-color:#65c3ba">Summons Number</th>
                                 <th scope="col" style="background-color:#65c3ba">Plate ID</th>
-                                <th scope="col" style="background-color:#65c3ba">Registration State</th>
+                                <th scope="col" style="background-color:#65c3ba">Violation State</th>
                                 <th scope="col" style="background-color:#65c3ba ">Issue Date</th>
                                 <th scope="col" style="background-color: #65c3ba">Plate Type</th>
                                 <th scope="col" style="background-color: #65c3ba"></th>
@@ -193,7 +193,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                foreach ($dbo->query('SELECT * from registration ORDER BY summons_number ASC LIMIT 50 ') as $row) {
+                                foreach ($dbo->query('SELECT * from violation ORDER BY summons_number ASC LIMIT 50 ') as $row) {
                             ?>
                             <tr>
                                 <td><?php echo $row["summons_number"]; ?></td>
@@ -252,7 +252,7 @@ $(document).ready(function() {
 <script>
 $(document).ready(function(){ 
     $('.editbtn').on('click', function() {
-        $('#registrationeditmodal').modal('show');
+        $('#violationeditmodal').modal('show');
         $tr = $(this).closest('tr');
 
         var data = $tr.children("td").map(function(){
@@ -271,7 +271,7 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){ 
     $('.deletebtn').on('click', function() {
-        $('#registrationdeletemodal').modal('show');
+        $('#violationdeletemodal').modal('show');
         $tr = $(this).closest('tr');
 
         var data = $tr.children("td").map(function(){

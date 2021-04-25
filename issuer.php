@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a href="vehicle.php" class="nav-link">Vehicle</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="violation.php" class="nav-link">Violation</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
