@@ -151,10 +151,6 @@
                 <div class="modal-body">
                     <input type="hidden" name="update_summons" id="update_summons">
                     <div class="form_group">
-                            <label>Summons Number</label>
-                            <input type="text" id="summons_number" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
-                    </div>
-                    <div class="form_group">
                             <label>Plate ID</label>
                             <input type="text" id="violation_code" name = "violation_code" class="form-control" placeholder="Enter Violation Code">
                     </div>
@@ -365,7 +361,7 @@ $(document).ready(function(){
             return $(this).text()
         }).get();
         console.log(data);
-        $('#summons_number').val(data[0]);
+        $('#update_summons').val(data[0]);
         $('#violation_code').val(data[1]);
         $('#violation_location').val(data[2]);
         $('#violation_precinct').val(data[3]);

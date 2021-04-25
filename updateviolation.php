@@ -3,7 +3,7 @@
 
 
 if (isset($_POST['updateviolationdata'])) {
-    $var_summons_number= $_POST['summons_number'];
+    $var_summons_number= $_POST['update_summons'];
 
     $var_violation_code = $_POST['violation_code'];
     $var_violation_location = $_POST['violation_location'];
@@ -59,7 +59,7 @@ if (isset($_POST['updateviolationdata'])) {
         $prepared_stmt->bindValue(':violation_description', $var_violation_description, PDO::PARAM_STR);
         
         $result = $prepared_stmt->execute();
-        echo '<script> alert ("Data Saved"); <script>';
+        echo '<script> alert ("Data Saved"); </script>';
         header('Location: violation.php');
  
     }
