@@ -33,6 +33,9 @@
                         <li class="nav-item">
                             <a href="registration.php" class="nav-link">Registration</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="vehicle.php" class="nav-link">Vehicle</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -161,7 +164,7 @@
         <div class="jumbotron" style="background-color: #fff">
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#issueraddmodal" style="background-color: #8EA4C8; border: none">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrationaddmodal" style="background-color: #8EA4C8; border: none">
                         Add Registration Data
                     </button>
                 </div>

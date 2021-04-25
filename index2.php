@@ -33,6 +33,9 @@
                             <li class="nav-item">
                                 <a href="Registration.php" class="nav-link">Registration</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="vehicle.php" class="nav-link">Vehicle</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
