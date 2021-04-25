@@ -44,6 +44,17 @@
             </nav>
         </div>
     </div>
+    <div class="main" text-align="right">
+        <div class="centerblock"> 
+            <div class="square" style="background-color: #d8daeb; left: 200px; width:650px; height: 400px; border-radius: 10px;">
+                <h4><b>Violation Table</b></h4>
+            </div> 
+        </div> 
+        <div id="box1">
+        <div class="police-image">
+            <img src="violation-image.png" height=550px>
+        </div>
+    </div>
     <!-- Add Modal -->
     <div class="modal fade" id="violationaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
