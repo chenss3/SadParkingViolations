@@ -4,6 +4,7 @@
 include('conn.php');
 
 if (isset($_POST['insertlocationdata'])) {
+    
     $var_summons_number= $_POST['summons_number'];
     $var_street_code1 = $_POST['street_code1'];
     $var_street_code2 = $_POST['street_code2'];

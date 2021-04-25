@@ -15,9 +15,9 @@ if (isset($_POST['updatelocationdata'])) {
     $var_meter_number = $_POST['meter_number'];
     $var_feet_from_curb = $_POST['feet_from_curb'];
 
-    $query = "UPDATE location SET street_code1 = '$var_street_code1', street_code2 = '$street_code2', street_code3 = '$street_code3',
-                house_number = '$var_house_number', street_name = '$street_name', intersecting_street= '$intersecting_street',
-                subdivision= '$subdivision', meter_number= '$meter_number', feet_from_curb= '$feet_from_curb' 
+    $query = "UPDATE location SET street_code1 = '$var_street_code1', street_code2 = '$var_street_code2', street_code3 = '$var_street_code3',
+                house_number = '$var_house_number', street_name = '$var_street_name', intersecting_street= '$var_intersecting_street',
+                subdivision= '$var_subdivision', meter_number= '$var_meter_number', feet_from_curb= '$var_feet_from_curb' 
                 WHERE summons_number = '$var_summons_number' ";
     try
     {
