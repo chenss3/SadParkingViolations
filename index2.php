@@ -7,7 +7,7 @@
         <link rel ="stylesheet" href ="style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
-        <title> kayla </title>
+        <title> Parking Violations </title>
     </head>
     <body>
         <div class="header">

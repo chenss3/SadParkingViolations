@@ -73,13 +73,10 @@
                             <div class="container">
                                 <h2>NYC Traffic Violations 2017</h2>
                                 <?php 
+                                
                                     try {
-                                        $dbhost = '127.0.0.1'; // localhost
-                                        $dbuname = 'root'; //user name
-                                        $dbpass = 'root'; //Password
-                                        $dbname = 'parkingviolations'; //Database name
+                                    include('conn.php'); ?>
                                     
-                                    $dbo = new PDO('mysql:host=' . $dbhost . ';port=8889;dbname=' . $dbname, $dbuname, $dbpass); ?>
                                         <table class="table-responsive table-bordered table-hover table-striped" id="myTable" style="max-height: 300px; max-width: px; overflow: scroll">
                                             <thead class="thead-dark">
                                                 <tr class = "table-primary">
