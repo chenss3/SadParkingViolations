@@ -24,20 +24,20 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="issuer.php" class="nav-link">Issuer</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tables
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"  href="issuer.php" class="nav-link">Issuer</a>
+                                <a class="dropdown-item"  href="Location.php" class="nav-link">Location</a>
+                                <a class="dropdown-item"  href="Registration.php" class="nav-link">Registration</a>
+                                <a class="dropdown-item"  href="vehicle.php" class="nav-link">Vehicle</a>
+                                <a class="dropdown-item"  href="violation.php" class="nav-link">Violation</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a href="location.php" class="nav-link">Location</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="registration.php" class="nav-link">Registration</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="vehicle.php" class="nav-link">Vehicle</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="violation.php" class="nav-link">Violation</a>
+                            <a href="#" class="nav-link">Statistics</a>
                         </li>
                     </ul>
                 </div>
