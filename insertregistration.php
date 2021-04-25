@@ -1,6 +1,6 @@
 <?php
 
-include('conn.php');
+
 
 if (isset($_POST['insertlocationdata'])) {
 
@@ -14,6 +14,8 @@ if (isset($_POST['insertlocationdata'])) {
             . "VALUES (:summons_number, :plate_id, :registration_state, :issue_date, :plate_type)";
     try
     {
+        include('conn.php');
+        
         $prepared_stmt = $dbo->prepare($query);
         $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':plate_id', $var_plate_id, PDO::PARAM_STR);

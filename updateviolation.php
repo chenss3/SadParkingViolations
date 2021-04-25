@@ -1,7 +1,5 @@
 <?php
 
-
-
 if (isset($_POST['updateviolationdata'])) {
     $var_summons_number= $_POST['update_summons'];
 
@@ -20,23 +18,23 @@ if (isset($_POST['updateviolationdata'])) {
     $var_violation_post_code = $_POST['violation_post_code'];
     $var_violation_description = $_POST['violation_description'];
 
-    $query = "UPDATE issuer SET 
-        violation_code = '$var_violation_code',
-        violation_location = '$var_violation_location',
-        violation_precinct = '$var_violation_precinct',
-        violation_time = '$var_violation_time',
-        violation_county = '$var_violation_county',
-        violation_front_opposite = '$var_violation_front_opposite',
-        violation_legal_code = '$var_violation_legal_code',
-        time_first_observed = '$var_time_first_observed',
-        date_first_observed = '$var_date_first_observed',
-        days_parking_in_effect = '$var_days_parking_in_effect',
-        from_hours_in_effect = '$var_from_hours_in_effect', 
-        to_hours_in_effect = '$var_to_hours_in_effect',
-        violation_post_code = '$var_violation_post_code',
-        violation_description = '$var_violation_description'
+    $query = "UPDATE violation SET " .
+        "violation_code = :var_violation_code," .
+        "violation_location = :var_violation_location," .
+        "violation_precinct = :var_violation_precinct," .
+        "violation_time = :var_violation_time," .
+        "violation_county = :var_violation_county," .
+        "violation_front_opposite = :var_violation_front_opposite," .
+        "violation_legal_code = :var_violation_legal_code," .
+        "time_first_observed = :var_time_first_observed," .
+        "date_first_observed = :var_date_first_observed," .
+        "days_parking_in_effect = :var_days_parking_in_effect," .
+        "from_hours_in_effect = :var_from_hours_in_effect, " .
+        "to_hours_in_effect = :var_to_hours_in_effect," .
+        "violation_post_code = :var_violation_post_code," .
+        "violation_description = :var_violation_description" .
         
-        WHERE summons_number = '$var_summons_number' ";
+        "WHERE summons_number = :var_summons_number ";
     try
     {
         include('conn.php');
