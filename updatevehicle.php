@@ -28,7 +28,7 @@ if (isset($_POST['updatevehicledata'])) {
         $prepared_stmt->bindValue(':vehicle_year', $var_vehicle_year, PDO::PARAM_STR);
         
         $result = $prepared_stmt->execute();
-        echo '<script> alert ("Data Saved"); <script>';
+        echo '<script> alert ("Data Saved"); </script>';
         header('Location: vehicle.php');
  
     }
