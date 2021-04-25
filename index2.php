@@ -29,8 +29,6 @@
                                     Tables
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="tablesummary.php">Table Summary</a>
-                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item"  href="issuer.php" class="nav-link">Issuer</a>
                                     <a class="dropdown-item"  href="Location.php" class="nav-link">Location</a>
                                     <a class="dropdown-item"  href="Registration.php" class="nav-link">Registration</a>
@@ -77,7 +75,7 @@
                     <a style="font-size: 40px; color:black"><b>Tables</b></a>
                 </div>
                 <div class = "text-square" style="position: absolute; left: 655px; top: 995px">
-                    <a href="tablesummary.php" style="font-size: 20px; text-decoration: none">Take a Look ►</a>
+                    <a href="issuer.php" style="font-size: 20px; text-decoration: none">Take a Look ►</a>
                 </div>
             </div>
             <div class="icon-statistics">
