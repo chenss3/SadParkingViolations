@@ -125,7 +125,6 @@ END //
 DELIMITER ;
 
 
-
 -- TEST THE insert_incident STORED PROCEDURE
 
 -- call insert_incident(
@@ -174,7 +173,3 @@ DELIMITER ;
 -- SELECT * 
 -- FROM issuer
 -- WHERE summons_number = '1010011';
-
-
-
-
