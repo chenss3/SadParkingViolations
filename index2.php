@@ -24,20 +24,23 @@
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="issuer.php" class="nav-link">Issuer</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tables
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="tablesummary.php">Table Summary</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item"  href="issuer.php" class="nav-link">Issuer</a>
+                                    <a class="dropdown-item"  href="Location.php" class="nav-link">Location</a>
+                                    <a class="dropdown-item"  href="Registration.php" class="nav-link">Registration</a>
+                                    <a class="dropdown-item"  href="vehicle.php" class="nav-link">Vehicle</a>
+                                    <a class="dropdown-item"  href="violation.php" class="nav-link">Violation</a>
+                                </div>
                             </li>
                             <li class="nav-item">
-                                <a href="Location.php" class="nav-link">Location</a>
+                                <a href="statistics.php" class="nav-link">Statistics</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="Registration.php" class="nav-link">Registration</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="vehicle.php" class="nav-link">Vehicle</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="vehicle.php" class="nav-link">Violation</a>
                             </li>
                         </ul>
                     </div>
@@ -54,6 +57,43 @@
                 </div> 
             </div>
         </div>
+        <div class ="icons">
+            <div class="icon-about">
+                <div class="icon-square" style="position: absolute; left: 150px; top: 650px">
+                    <img src="index2-about.jpeg" height=300px width="fit-content">
+                </div> 
+                <div class = "text-square" style="position: absolute; left: 230px; top: 930px">
+                    <a style="font-size: 40px; color:black"><b>About</b></a>
+                </div>
+                <div class = "text-square" style="position: absolute; left: 235px; top: 995px">
+                    <a href="about.php" style="font-size: 20px; text-decoration: none">Learn More ►</a>
+                </div>
+            </div>
+            <div class="icon-tables">
+                <div class="icon-square" style="position: absolute; left: 570px; top: 660px">
+                    <img src="index2-tables.png" height=260px width="fit-content">
+                </div> 
+                <div class = "text-square" style="position: absolute; left: 650px; top: 930px">
+                    <a style="font-size: 40px; color:black"><b>Tables</b></a>
+                </div>
+                <div class = "text-square" style="position: absolute; left: 655px; top: 995px">
+                    <a href="tablesummary.php" style="font-size: 20px; text-decoration: none">Take a Look ►</a>
+                </div>
+            </div>
+            <div class="icon-statistics">
+                <div class="icon-square" style="position: absolute; left: 990px; top: 660px">
+                    <img src="index2-statistics.jpeg" height=250px width="fit-content">
+                </div> 
+                <div class = "text-square" style="position: absolute; left: 1035px; top: 930px">
+                    <a style="font-size: 40px; color:black"><b>Statistics</b></a>
+                </div>
+                <div class = "text-square" style="position: absolute; left: 1040px; top: 995px">
+                    <a href="statistics.php" style="font-size: 20px; text-decoration: none">Analyze Trends ►</a>
+                </div>
+            </div>
+        </div>
+
+
         
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
