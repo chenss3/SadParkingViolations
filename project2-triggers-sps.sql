@@ -1,10 +1,8 @@
+-- Sophia Chen and Jack Walton
+-- Sophia.s.chen@vanderbilt.edu and jack.s.walton@vanderbilt.edu
+-- Project 2
 
--- trigger ideas:
-
--- SP ideas: 
--- insert full incident data into database
-
-DROP PROCEDURE IF EXISTS insert_incident
+DROP PROCEDURE IF EXISTS insert_incident;
 
 DELIMITER // 
 
@@ -53,13 +51,15 @@ CREATE PROCEDURE insert_incident(
 
 BEGIN 
 	INSERT INTO registration
-	VALUES(plate_id,
+	VALUES(summons_number,
+    plate_id,
 	registration_state,
     issue_date,
     plate_type);
     
     INSERT INTO vehicle
-	VALUES(vehicle_body_type,
+	VALUES(summons_number,
+    vehicle_body_type,
     vehicle_make,
     vehicle_expiration_date,
 	vehicle_color,
@@ -67,7 +67,8 @@ BEGIN
 	vehicle_year);
     
     INSERT INTO location 
-	VALUES(street_code1, 
+	VALUES(summons_number,
+    street_code1, 
 	street_code2,
 	street_code3,
 	house_number,
@@ -78,7 +79,8 @@ BEGIN
 	feet_from_curb);
     
     INSERT INTO issuer
-	VALUES(issuer_code,
+	VALUES(summons_number,
+    issuer_code,
 	issuing_agency,
 	issuer_precinct,
 	issuer_command,
@@ -112,7 +114,7 @@ DROP TRIGGER IF EXISTS validate_vehicle;
 DELIMITER // 
 
 CREATE TRIGGER validate_vehicle
-AFTER INSERT ON vehicle
+BEFORE INSERT ON vehicle
 FOR EACH ROW 
 BEGIN 
 	IF NEW.vehicle_expiration_date < CURDATE() THEN 
@@ -124,8 +126,130 @@ DELIMITER ;
 
 
 
+-- TEST THE insert_incident STORED PROCEDURE
+
+-- call insert_incident(
+-- 	'1010011',
+-- 	'zzzyyyzzz',
+-- 	'TN',
+-- 	'PAS',
+-- 	'7/20/20',
+-- 	5,
+-- 	'TEST',
+-- 	'TEST',
+-- 	'V',
+-- 	'0',
+-- 	'0',
+-- 	'0',
+-- 	NULL,
+-- 	105,
+-- 	0,
+-- 	20,
+-- 	0,
+-- 	'T101',
+-- 	'J',
+-- 	'0144A',
+-- 	NULL,
+-- 	'BX',
+-- 	'O',
+-- 	'350',
+-- 	"Elmer's Way",
+-- 	"Clifford's Way",
+-- 	'0',
+-- 	1111,
+-- 	'D',
+-- 	'T',
+-- 	'Y',
+-- 	'0700P',
+-- 	'0700P',
+-- 	'GY',
+-- 	NULL,
+-- 	'2001',
+-- 	"12",
+-- 	'0',
+-- 	'4',
+-- 	'FIRE HYDRANT VIOLATION'
+-- );
+
+-- SELECT * 
+-- FROM issuer
+-- WHERE summons_number = '1010011';
 
 
 
+-- Audit table for violations
+DROP TABLE IF EXISTS violations_audit;
 
+CREATE TABLE violations_audit (
+	audit_id INT AUTO_INCREMENT,
+    summons_number VARCHAR(20),
+    violation_code TINYINT, 
+    violation_legal_code CHAR(1), 
+    date_first_observed VARCHAR(10), 
+    violation_description MEDIUMTEXT,
+    date_updated DATETIME,
+    PRIMARY KEY (audit_id)
+) ENGINE=INNODB;
 
+-- AFTER UPDATE store the important old data
+DROP TRIGGER IF EXISTS violations_after_update;
+
+DELIMITER // 
+
+CREATE TRIGGER violations_after_update
+AFTER UPDATE
+ON violation
+FOR EACH ROW
+BEGIN
+	INSERT INTO violations_audit (summons_number,
+		violation_code, 
+		violation_legal_code, 
+		date_first_observed, 
+		violation_description,
+		date_updated)
+    VALUES (OLD.summons_number,
+		OLD.violation_code, 
+		OLD.violation_legal_code, 
+		OLD.date_first_observed, 
+		OLD.violation_description,
+		NOW());
+END // 
+
+DELIMITER ;
+
+-- AFTER DELETE store the important old data
+DROP TRIGGER IF EXISTS violations_after_delete;
+
+DELIMITER // 
+
+CREATE TRIGGER violations_after_delete
+AFTER DELETE
+ON violation
+FOR EACH ROW
+BEGIN
+	INSERT INTO violations_audit (summons_number,
+		violation_code, 
+		violation_legal_code, 
+		date_first_observed, 
+		violation_description,
+		date_updated)
+    VALUES (OLD.summons_number,
+		OLD.violation_code, 
+		OLD.violation_legal_code, 
+		OLD.date_first_observed, 
+		OLD.violation_description,
+		NOW());
+END // 
+
+DELIMITER ;
+
+-- TEST THE AUDIT TRIGGERS
+
+-- UPDATE violation
+-- SET summons_number = '1010012'
+-- WHERE summons_number = '1010011';
+
+-- DELETE FROM violation
+-- WHERE summons_number = '1010012';
+
+-- SELECT * FROM violations_audit;

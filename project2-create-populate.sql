@@ -52,6 +52,8 @@ CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number VARCHAR(20)
                                                       PRIMARY KEY (summons_number));
 
 
+-- C://wamp64/www/SadParkingViolations/jack-project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv
+-- '/Applications/MAMP/htdocs/Project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
 
 -- Loads the data
 LOAD DATA LOCAL INFILE '/Applications/MAMP/htdocs/Project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
@@ -156,7 +158,6 @@ SELECT DISTINCT summons_number,
     issue_date,
     plate_type
 FROM ParkingViolationsMegaTable;
--- DELETE FROM registration;
 
 INSERT INTO vehicle
 SELECT DISTINCT summons_number,
