@@ -52,7 +52,7 @@
         </div> 
         <div id="box1">
         <div class="police-image">
-            <img src="location-image.png" height=520px>
+            <img src="location-image.jpeg" height=530px>
         </div>
     </div>
     
