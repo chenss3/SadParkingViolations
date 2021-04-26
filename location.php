@@ -90,32 +90,32 @@
 
                         <div class="form-group">
                             <label>House Number</label>
-                            <input type="text" name = "house_number" class="form-control" placeholder="Enter House Number">
+                            <input type="text" maxlength="15" name = "house_number" class="form-control" placeholder="Enter House Number">
                         </div>
 
                         <div class="form-group">
                             <label>Street Name</label>
-                            <input type="text" name = "street_name" class="form-control" placeholder="Enter Street Name">
+                            <input type="text" maxlength="30" name = "street_name" class="form-control" placeholder="Enter Street Name">
                         </div>
 
                         <div class="form-group">
                             <label>Intersecting Street</label>
-                            <input type="text" name = "intersecting_street" class="form-control" placeholder="Enter Intersecting Street">
+                            <input type="text" maxlength="20" name = "intersecting_street" class="form-control" placeholder="Enter Intersecting Street">
                         </div>
 
                         <div class="form-group">
                             <label>Subdivision</label>
-                            <input type="text" name = "subdivision" class="form-control" placeholder="Enter Subdivision">
+                            <input type="text" maxlength="2" name = "subdivision" class="form-control" placeholder="Enter Subdivision">
                         </div>
                     
                         <div class="form-group">
                             <label>Meter Number</label>
-                            <input type="text" name = "meter_number" class="form-control" placeholder="Enter Meter Number">
+                            <input type="text" maxlength="8" name = "meter_number" class="form-control" placeholder="Enter Meter Number">
                         </div>
 
                         <div class="form-group">
                             <label>Feet From Curb</label>
-                            <input type="text" name = "feet_from_curb" class="form-control" placeholder="Feet From Curb">
+                            <input type="text" maxlength="4" name = "feet_from_curb" class="form-control" placeholder="Feet From Curb">
                         </div>
                         
                     </div>
@@ -144,46 +144,46 @@
                         <input type="hidden" name = "update_summons" id = "update_summons"> 
                         <div class="form-group">
                             <label>Street Code 1</label>
-                            <input type="text" name = "street_code1" id = "street_code1" class="form-control" placeholder="Enter Street Code 1">
+                            <input type="number" name = "street_code1" id = "street_code1" class="form-control" placeholder="Enter Street Code 1">
                         </div>
                         <div class="form-group">
                             <label>Street Code 2</label>
-                            <input type="text" name = "street_code2" id = "street_code2" class="form-control" placeholder="Enter Street Code 2">
+                            <input type="number" name = "street_code2" id = "street_code2" class="form-control" placeholder="Enter Street Code 2">
                         </div>
 
                         <div class="form-group">
                             <label>Street Code 3</label>
-                            <input type="text" name = "street_code3" id = "street_code3" class="form-control" placeholder="Enter Street Code 3">
+                            <input type="number" name = "street_code3" id = "street_code3" class="form-control" placeholder="Enter Street Code 3">
                         </div>
 
                         <div class="form-group">
                             <label>House Number</label>
-                            <input type="text" name = "house_number" id = "house_number" class="form-control" placeholder="Enter House Number">
+                            <input type="text" maxlength="15" name = "house_number" id = "house_number" class="form-control" placeholder="Enter House Number">
                         </div>
 
                         <div class="form-group">
                             <label>Street Name</label>
-                            <input type="text" name = "street_name" id = "street_name" class="form-control" placeholder="Enter Street Name">
+                            <input type="text" maxlength="30" name = "street_name" id = "street_name" class="form-control" placeholder="Enter Street Name">
                         </div>
 
                         <div class="form-group">
                             <label>Intersecting Street</label>
-                            <input type="text" name = "intersecting_street" id = "intersecting_street" class="form-control" placeholder="Enter Intersecting Street">
+                            <input type="text" maxlength="20" name = "intersecting_street" id = "intersecting_street" class="form-control" placeholder="Enter Intersecting Street">
                         </div>
 
                         <div class="form-group">
                             <label>Subdivision</label>
-                            <input type="text" name = "subdivision" id = "subdivision" class="form-control" placeholder="Enter Subdivision">
+                            <input type="text" maxlength="2" name = "subdivision" id = "subdivision" class="form-control" placeholder="Enter Subdivision">
                         </div>
                     
                         <div class="form-group">
                             <label>Meter Number</label>
-                            <input type="text" name = "meter_number" id = "meter_number" class="form-control" placeholder="Enter Meter Number">
+                            <input type="text" maxlength="8" name = "meter_number" id = "meter_number" class="form-control" placeholder="Enter Meter Number">
                         </div>
 
                         <div class="form-group">
                             <label>Feet From Curb</label>
-                            <input type="text" name = "feet_from_curb" id = "feet_from_curb" class="form-control" placeholder="Feet From Curb">
+                            <input type="text" maxlength="4" name = "feet_from_curb" id = "feet_from_curb" class="form-control" placeholder="Feet From Curb">
                         </div>
                         
                     </div>

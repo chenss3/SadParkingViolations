@@ -80,5 +80,5 @@ END //
 
 DELIMITER ;
 
-CALL get_all_vehicle_makes();
+-- CALL get_all_vehicle_makes();
 

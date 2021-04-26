@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number BIGINT,
                                                       registration_state CHAR(2),
                                                       plate_type CHAR(3),
                                                       issue_date CHAR(10),
-                                                      violation_code TINYINT,
+                                                      violation_code INT,
                                                       vehicle_body_type VARCHAR(4),
                                                       vehicle_make VARCHAR(10),
                                                       issuing_agency CHAR(1),
@@ -70,7 +70,7 @@ IGNORE 1 ROWS;
 DROP TABLE IF EXISTS violation;
 CREATE TABLE violation (
 	summons_number BIGINT,
-	violation_code TINYINT,
+	violation_code INT,
 	violation_location VARCHAR(5),
 	violation_precinct SMALLINT,
 	violation_time CHAR(5),

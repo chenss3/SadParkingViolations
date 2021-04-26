@@ -12,7 +12,7 @@ CREATE PROCEDURE insert_incident(
 	IN registration_state CHAR(2),
 	IN plate_type CHAR(3),
 	IN issue_date CHAR(10),
-	IN violation_code TINYINT,
+	IN violation_code INT,
 	IN vehicle_body_type VARCHAR(4),
 	IN vehicle_make VARCHAR(10),
 	IN issuing_agency CHAR(1),

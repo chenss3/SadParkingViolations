@@ -75,26 +75,26 @@
                         </div>
                         <div class="form-group">
                             <label>Issuer Code</label>
-                            <input type="text" name = "issuer_code" class="form-control" placeholder="Enter Issuer Code">
+                            <input type="text" maxlength="7" name = "issuer_code" class="form-control" placeholder="Enter Issuer Code">
                         </div>
                         <div class="form-group">
                             <label>Issuing Agency</label>
-                            <input type="text" name = "issuing_agency" class="form-control" placeholder="Enter Issuing Agency">
+                            <input type="text" maxlength="1" name = "issuing_agency" class="form-control" placeholder="Enter Issuing Agency">
                         </div>
 
                         <div class="form-group">
                             <label>Issuer Precinct</label>
-                            <input type="text" name = "issuer_precinct" class="form-control" placeholder="Enter Issuer Precinct">
+                            <input type="text" max="32000" name = "issuer_precinct" class="form-control" placeholder="Enter Issuer Precinct">
                         </div>
 
                         <div class="form-group">
                             <label>Issuer Command</label>
-                            <input type="text" name = "issuer_command" class="form-control" placeholder="Enter Issuer Command">
+                            <input type="text" maxlength="10" name = "issuer_command" class="form-control" placeholder="Enter Issuer Command">
                         </div>
 
                         <div class="form-group">
                             <label>Issuer Squad</label>
-                            <input type="text" name = "issuer_squad" class="form-control" placeholder="Enter Issuer Squad">
+                            <input type="text" maxlength="4" name = "issuer_squad" class="form-control" placeholder="Enter Issuer Squad">
                         </div>
                     
                     </div>
@@ -123,26 +123,26 @@
                         <input type="hidden" name = "update_summons" id = "update_summons"> 
                         <div class="form-group">
                             <label>Issuer Code</label>
-                            <input type="text" name = "issuer_code" id="issuer_code" class="form-control" placeholder="Enter Issuer Code">
+                            <input type="text" maxlength="7" name = "issuer_code" id="issuer_code" class="form-control" placeholder="Enter Issuer Code">
                         </div>
                         <div class="form-group">
                             <label>Issuing Agency</label>
-                            <input type="text" name = "issuing_agency" id="issuing_agency" class="form-control" placeholder="Enter Issuing Agency">
+                            <input type="text" maxlength="1" name = "issuing_agency" id="issuing_agency" class="form-control" placeholder="Enter Issuing Agency">
                         </div>
 
                         <div class="form-group">
                             <label>Issuer Precinct</label>
-                            <input type="text" name = "issuer_precinct" id="issuer_precinct" class="form-control" placeholder="Enter Issuer Precinct">
+                            <input type="number" max="32000" name = "issuer_precinct" id="issuer_precinct" class="form-control" placeholder="Enter Issuer Precinct">
                         </div>
 
                         <div class="form-group">
                             <label>Issuer Command</label>
-                            <input type="text" name = "issuer_command" id="issuer_command" class="form-control" placeholder="Enter Issuer Command">
+                            <input type="text" maxlength="10" name = "issuer_command" id="issuer_command" class="form-control" placeholder="Enter Issuer Command">
                         </div>
 
                         <div class="form-group">
                             <label>Issuer Squad</label>
-                            <input type="text" name = "issuer_squad" id="issuer_squad" class="form-control" placeholder="Enter Issuer Squad">
+                            <input type="text" maxlength="4" name = "issuer_squad" id="issuer_squad" class="form-control" placeholder="Enter Issuer Squad">
                         </div>
                     
                     </div>

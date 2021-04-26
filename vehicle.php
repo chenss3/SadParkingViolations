@@ -73,27 +73,27 @@
                         </div>
                         <div class="form_group">
                                 <label>Vehicle Body Type</label>
-                                <input type="text" name = "vehicle_body_type" class="form-control" placeholder="Enter Vehicle Body Type">
+                                <input type="text" maxlength="4" name = "vehicle_body_type" class="form-control" placeholder="Enter Vehicle Body Type">
                         </div>
                         <div class="form_group">
                                 <label>Vehicle Make</label>
-                                <input type="text" name = "vehicle_make" class="form-control" placeholder="Enter Vehicle Make">
+                                <input type="text" maxlength="10" name = "vehicle_make" class="form-control" placeholder="Enter Vehicle Make">
                         </div>            
                         <div class="form_group">
                                 <label>Vehicle Expiration Date</label>
-                                <input type="text" name = "vehicle_expiration_date" class="form-control" placeholder="Enter Vehicle Expiration Date">
+                                <input type="text" maxlength="10" name = "vehicle_expiration_date" class="form-control" placeholder="Enter Vehicle Expiration Date">
                         </div>
                         <div class="form_group">
                                 <label>Vehicle Color</label>
-                                <input type="text" name = "vehicle_color" class="form-control" placeholder="Enter Vehicle Color">
+                                <input type="text" maxlength="15" name = "vehicle_color" class="form-control" placeholder="Enter Vehicle Color">
                         </div>
                         <div class="form_group">
                                 <label>Unregistered Vehicle</label>
-                                <input type="text" name = "unregistered_vehicle" class="form-control" placeholder="Enter Unregistered Vehicle">
+                                <input type="text" maxlength="4" name = "unregistered_vehicle" class="form-control" placeholder="Enter Unregistered Vehicle">
                         </div>
                         <div class="form_group">
                                 <label>Vehicle Year</label>
-                                <input type="text" name = "vehicle_year" class="form-control" placeholder="Enter Vehicle Year">
+                                <input type="text" maxlength="4" name = "vehicle_year" class="form-control" placeholder="Enter Vehicle Year">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -119,27 +119,27 @@
                     <input type="hidden" name="update_summons" id="update_summons">
                     <div class="form_group">
                             <label>Vehicle Body Type</label>
-                            <input type="text" id="vehicle_body_type" name = "vehicle_body_type" class="form-control" placeholder="Enter Vehicle Body Type">
+                            <input type="text" maxlength="4" id="vehicle_body_type" name = "vehicle_body_type" class="form-control" placeholder="Enter Vehicle Body Type">
                     </div>
                     <div class="form_group">
                             <label>Vehicle Make</label>
-                            <input type="text" id="vehicle_make" name = "vehicle_make" class="form-control" placeholder="Enter Vehicle Make">
+                            <input type="text" maxlength="10" id="vehicle_make" name = "vehicle_make" class="form-control" placeholder="Enter Vehicle Make">
                     </div>            
                     <div class="form_group">
                             <label>Vehicle Expiration Date</label>
-                            <input type="text" id="vehicle_expiration_date" name = "vehicle_expiration_date" class="form-control" placeholder="Enter Vehicle Expiration Date">
+                            <input type="text" maxlength="10" id="vehicle_expiration_date" name = "vehicle_expiration_date" class="form-control" placeholder="Enter Vehicle Expiration Date">
                     </div>
                     <div class="form_group">
                             <label>Vehicle Color</label>
-                            <input type="text" id="vehicle_color" name = "vehicle_color" class="form-control" placeholder="Enter Vehicle Color">
+                            <input type="text" maxlength="15" id="vehicle_color" name = "vehicle_color" class="form-control" placeholder="Enter Vehicle Color">
                     </div>
                     <div class="form_group">
                             <label>Unregistered Vehicle</label>
-                            <input type="text" id="unregistered_vehicle" name = "unregistered_vehicle" class="form-control" placeholder="Enter Unregistered Vehicle">
+                            <input type="text" maxlength="4" id="unregistered_vehicle" name = "unregistered_vehicle" class="form-control" placeholder="Enter Unregistered Vehicle">
                     </div>
                     <div class="form_group">
                             <label>Vehicle Year</label>
-                            <input type="text" id="vehicle_year" name = "vehicle_year" class="form-control" placeholder="Enter Vehicle Year">
+                            <input type="text" maxlength="4" id="vehicle_year" name = "vehicle_year" class="form-control" placeholder="Enter Vehicle Year">
                     </div>
                 </div>
                 <div class="modal-footer">
