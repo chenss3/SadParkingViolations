@@ -34,7 +34,6 @@ CREATE PROCEDURE insert_incident(
 	IN street_name VARCHAR(30),
 	IN intersecting_street VARCHAR(20),
 	IN date_first_observed VARCHAR(10),
-	IN law_section INT,
 	IN subdivision VARCHAR(2),
 	IN violation_legal_code CHAR(1),
 	IN days_parking_in_effect VARCHAR(7),
@@ -50,6 +49,24 @@ CREATE PROCEDURE insert_incident(
 )
 
 BEGIN 
+
+	INSERT INTO violation
+	VALUES(summons_number,
+	violation_code,
+	violation_location,
+	violation_precinct,
+	violation_time,
+	violation_county,
+	violation_front_opposite,
+	violation_legal_code,
+	time_first_observed,
+	date_first_observed,
+	days_parking_in_effect,
+	from_hours_in_effect,
+	to_hours_in_effect,
+	violation_post_code,
+	violation_description);
+    
 	INSERT INTO registration
 	VALUES(summons_number,
     plate_id,
@@ -86,23 +103,6 @@ BEGIN
 	issuer_command,
 	issuer_squad);
     
-    INSERT INTO violation
-	VALUES(summons_number,
-	violation_code,
-	violation_location,
-	violation_precinct,
-	violation_time,
-	violation_county,
-	violation_front_opposite,
-	violation_legal_code,
-	time_first_observed,
-	date_first_observed,
-	days_parking_in_effect,
-	from_hours_in_effect,
-	to_hours_in_effect,
-	violation_post_code,
-	violation_description);
-    
 END // 
 
 DELIMITER ;
@@ -138,7 +138,6 @@ DELIMITER ;
 -- 	"Elmer's Way",
 -- 	"Clifford's Way",
 -- 	'0',
--- 	1111,
 -- 	'D',
 -- 	'T',
 -- 	'Y',
