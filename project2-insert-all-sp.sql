@@ -7,7 +7,7 @@ DROP PROCEDURE IF EXISTS insert_incident;
 DELIMITER // 
 
 CREATE PROCEDURE insert_incident(
-	IN summons_number INT,
+	IN summons_number BIGINT,
 	IN plate_id VARCHAR(20),
 	IN registration_state CHAR(2),
 	IN plate_type CHAR(3),

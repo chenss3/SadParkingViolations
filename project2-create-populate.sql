@@ -9,7 +9,7 @@ USE parkingviolations;
 
 -- Create mega table
 DROP TABLE IF EXISTS ParkingViolationsMegaTable;
-CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number INT,
+CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number BIGINT,
 													  plate_id VARCHAR(20),
                                                       registration_state CHAR(2),
                                                       plate_type CHAR(3),
@@ -69,7 +69,7 @@ IGNORE 1 ROWS;
 -- violation
 DROP TABLE IF EXISTS violation;
 CREATE TABLE violation (
-	summons_number INT,
+	summons_number BIGINT,
 	violation_code TINYINT,
 	violation_location VARCHAR(5),
 	violation_precinct SMALLINT,
@@ -91,7 +91,7 @@ CREATE TABLE violation (
 -- registration table
 DROP TABLE IF EXISTS registration;
 CREATE TABLE registration (
-	summons_number INT,
+	summons_number BIGINT,
 	plate_id VARCHAR(20),
 	registration_state CHAR(2),
     issue_date CHAR(10),
@@ -107,7 +107,7 @@ CREATE TABLE registration (
 -- vehicle
 DROP TABLE IF EXISTS vehicle;
 CREATE TABLE vehicle (
-	summons_number INT,
+	summons_number BIGINT,
 	vehicle_body_type VARCHAR(4),
     vehicle_make VARCHAR(10),
     vehicle_expiration_date VARCHAR(10),
@@ -125,7 +125,7 @@ CREATE TABLE vehicle (
 -- location
 DROP TABLE IF EXISTS location;
 CREATE TABLE location (
-	summons_number INT,
+	summons_number BIGINT,
 	street_code1 INT, 
 	street_code2 INT,
 	street_code3 INT,
@@ -143,15 +143,15 @@ CREATE TABLE location (
             ON UPDATE CASCADE
 ) ENGINE=INNODB;
 
-INSERT INTO location(summons_number, street_code1, street_code2, street_code3, 
-                house_number, street_name, intersecting_street, subdivision, meter_number, feet_from_curb)
-                VALUES (1, 2, 3, 4, 5, 
-                6, 7, 8, 9, 0)
+-- INSERT INTO location(summons_number, street_code1, street_code2, street_code3, 
+--                 house_number, street_name, intersecting_street, subdivision, meter_number, feet_from_curb)
+--                 VALUES (1, 2, 3, 4, 5, 
+--                 6, 7, 8, 9, 0);
 
 -- issuer
 DROP TABLE IF EXISTS issuer;
 CREATE TABLE issuer (
-	summons_number INT,
+	summons_number BIGINT,
 	issuer_code VARCHAR(7),
 	issuing_agency CHAR(1),
 	issuer_precinct SMALLINT,
@@ -224,33 +224,32 @@ SELECT DISTINCT summons_number,
 	issuer_squad
 FROM ParkingViolationsMegaTable;
 
-SELECT COUNT(*) FROM ParkingViolationsMegaTable;
-SELECT COUNT(*) FROM registration;
-SELECT COUNT(*) FROM vehicle;
-SELECT COUNT(*) FROM issuer;
-SELECT COUNT(*) FROM violation;
-SELECT COUNT(*) FROM location;
+-- Check the counts of each table
+-- SELECT COUNT(*) FROM ParkingViolationsMegaTable;
+-- SELECT COUNT(*) FROM registration;
+-- SELECT COUNT(*) FROM vehicle;
+-- SELECT COUNT(*) FROM issuer;
+-- SELECT COUNT(*) FROM violation;
+-- SELECT COUNT(*) FROM location;
 
-SELECT * FROM violation
-ORDER BY summons_number;
+-- SELECT * FROM violation
+-- ORDER BY summons_number;
 
 -- make sure plate_id is populated
-SELECT *, COUNT(*)
-FROM ParkingViolationsMegaTable
-WHERE plate_id > 'B'
-ORDER BY plate_id 
-LIMIT 20;
+-- SELECT *, COUNT(*)
+-- FROM ParkingViolationsMegaTable
+-- WHERE plate_id > 'B'
+-- ORDER BY plate_id 
+-- LIMIT 20;
 
 -- check to make sure that violation_post_code is populated
-SELECT violation_post_code, COUNT(*) FROM violation
-WHERE violation_post_code = ''
-GROUP BY violation_post_code
-ORDER BY violation_post_code ASC;
+-- SELECT violation_post_code, COUNT(*) FROM violation
+-- WHERE violation_post_code = ''
+-- GROUP BY violation_post_code
+-- ORDER BY violation_post_code ASC;
 
 -- check for non-numeric characters in summons_number
-SELECT summons_number
-FROM violation
-WHERE summons_number REGEXP '^[^0-9]+$';
+-- SELECT summons_number
+-- FROM violation
+-- WHERE summons_number REGEXP '^[^0-9]+$';
 
-INSERT INTO violation(summons_number)
-VALUES (2);
