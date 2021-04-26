@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS violations_audit;
 
 CREATE TABLE violations_audit (
 	audit_id INT AUTO_INCREMENT,
-    summons_number INT,
+    summons_number BIGINT,
     violation_code TINYINT, 
     violation_legal_code CHAR(1), 
     date_first_observed VARCHAR(10), 
