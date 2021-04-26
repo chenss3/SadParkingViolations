@@ -253,3 +253,5 @@ FROM ParkingViolationsMegaTable;
 -- FROM violation
 -- WHERE summons_number REGEXP '^[^0-9]+$';
 
+-- test query to get interesting violation_descriptions (takes too long to run)
+-- SELECT * FROM megaView WHERE LENGTH(violation_description)>1 GROUP BY violation_description LIMIT 50;

@@ -136,7 +136,7 @@
                                                                                                         to_hours_in_effect, vehicle_color, unregistered_vehicle, vehicle_year, meter_number, 
                                                                                                         feet_from_curb, violation_post_code, violation_description
                                                                                                 from ParkingViolationsMegaTable LIMIT 50') as $row) */
-                                                       foreach ($dbo->query('SELECT * from megaView LIMIT 50') as $row)                                             
+                                                       foreach ($dbo->query('SELECT * FROM megaView WHERE LENGTH(violation_description)>1 LIMIT 50;') as $row)                                             
                                                 { ?>
                                                 <tr>
                                                     <!-- Print (echo) the value of each column of the table -->

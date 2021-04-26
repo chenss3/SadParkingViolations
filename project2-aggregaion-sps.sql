@@ -52,10 +52,33 @@ CREATE PROCEDURE get_all_county_counts()
 BEGIN 
 	SELECT violation_county, COUNT(*) AS count
     FROM violation
-    GROUP BY violation_county;
+    WHERE violation_county != ''
+    GROUP BY violation_county
+    ORDER BY COUNT(*) DESC
+    LIMIT 10;
 END // 
 
 DELIMITER ;
 
 -- CALL get_all_county_counts();
+
+-- Aggregation procedure to get count of all vehicle makes
+DROP PROCEDURE IF EXISTS get_all_vehicle_makes;
+
+DELIMITER // 
+
+CREATE PROCEDURE get_all_vehicle_makes()
+
+BEGIN 
+	SELECT vehicle_make, COUNT(*) AS count
+    FROM vehicle
+    WHERE vehicle_make != ''
+    GROUP BY vehicle_make
+    ORDER BY COUNT(*) DESC
+    LIMIT 10;
+END // 
+
+DELIMITER ;
+
+CALL get_all_vehicle_makes();
 
