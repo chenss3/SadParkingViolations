@@ -9,7 +9,7 @@ USE parkingviolations;
 
 -- Create mega table
 DROP TABLE IF EXISTS ParkingViolationsMegaTable;
-CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number VARCHAR(20),
+CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number INT,
 													  plate_id VARCHAR(20),
                                                       registration_state CHAR(2),
                                                       plate_type CHAR(3),
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number VARCHAR(20)
 -- '/Applications/MAMP/htdocs/Project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
 
 -- Loads the data
-LOAD DATA LOCAL INFILE '/Applications/MAMP/htdocs/Project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
+LOAD DATA LOCAL INFILE 'C://wamp64/www/SadParkingViolations/jack-project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
 INTO TABLE ParkingViolationsMegaTable
 FIELDS TERMINATED BY ',' 
 OPTIONALLY ENCLOSED BY '"'
@@ -64,74 +64,12 @@ ESCAPED BY "\\"
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-SELECT *
-FROM ParkingViolationsMegaTable
-WHERE plate_id > 'B'
-ORDER BY plate_id 
-LIMIT 20;
 
-
-
--- registration table
-DROP TABLE IF EXISTS registration;
-CREATE TABLE registration (
-	summons_number VARCHAR(20),
-	plate_id VARCHAR(20),
-	registration_state CHAR(2),
-    issue_date CHAR(10),
-    plate_type CHAR(3),
-    PRIMARY KEY (summons_number),
-    CONSTRAINT unq_sn UNIQUE(summons_number)
-) ENGINE=INNODB;
-
--- vehicle
-DROP TABLE IF EXISTS vehicle;
-CREATE TABLE vehicle (
-	summons_number VARCHAR(20),
-	vehicle_body_type VARCHAR(4),
-    vehicle_make VARCHAR(10),
-    vehicle_expiration_date VARCHAR(10),
-	vehicle_color VARCHAR(15),
-	unregistered_vehicle VARCHAR(4),
-	vehicle_year VARCHAR(4),
-    PRIMARY KEY (summons_number),
-    CONSTRAINT unq_sn2 UNIQUE(summons_number)
-) ENGINE=INNODB;
-
--- location
-DROP TABLE IF EXISTS location;
-CREATE TABLE location (
-	summons_number VARCHAR(20),
-	street_code1 INT, 
-	street_code2 INT,
-	street_code3 INT,
-	house_number VARCHAR(15),
-	street_name VARCHAR(30),
-	intersecting_street VARCHAR(20),
-	subdivision VARCHAR(2),
-	meter_number VARCHAR(8),
-	feet_from_curb VARCHAR(4),
-    PRIMARY KEY (summons_number),
-    CONSTRAINT unq_sn3 UNIQUE(summons_number)
-) ENGINE=INNODB;
-
--- issuer
-DROP TABLE IF EXISTS issuer;
-CREATE TABLE issuer (
-	summons_number VARCHAR(20),
-	issuer_code VARCHAR(7),
-	issuing_agency CHAR(1),
-	issuer_precinct SMALLINT,
-	issuer_command VARCHAR(10),
-	issuer_squad VARCHAR(4),
-    PRIMARY KEY (summons_number),
-    CONSTRAINT unq_sn4 UNIQUE(summons_number)
-) ENGINE=INNODB;
 
 -- violation
 DROP TABLE IF EXISTS violation;
 CREATE TABLE violation (
-	summons_number VARCHAR(20),
+	summons_number INT,
 	violation_code TINYINT,
 	violation_location VARCHAR(5),
 	violation_precinct SMALLINT,
@@ -150,7 +88,97 @@ CREATE TABLE violation (
     CONSTRAINT unq_sn5 UNIQUE(summons_number)
 ) ENGINE=INNODB;
 
+-- registration table
+DROP TABLE IF EXISTS registration;
+CREATE TABLE registration (
+	summons_number INT,
+	plate_id VARCHAR(20),
+	registration_state CHAR(2),
+    issue_date CHAR(10),
+    plate_type CHAR(3),
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn1 UNIQUE(summons_number), 
+    CONSTRAINT fk_sn1 FOREIGN KEY (summons_number)
+			REFERENCES violation(summons_number)
+			ON DELETE CASCADE
+            ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+-- vehicle
+DROP TABLE IF EXISTS vehicle;
+CREATE TABLE vehicle (
+	summons_number INT,
+	vehicle_body_type VARCHAR(4),
+    vehicle_make VARCHAR(10),
+    vehicle_expiration_date VARCHAR(10),
+	vehicle_color VARCHAR(15),
+	unregistered_vehicle VARCHAR(4),
+	vehicle_year VARCHAR(4),
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn2 UNIQUE(summons_number), 
+    CONSTRAINT fk_sn2 FOREIGN KEY (summons_number)
+			REFERENCES violation(summons_number)
+			ON DELETE CASCADE
+            ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+-- location
+DROP TABLE IF EXISTS location;
+CREATE TABLE location (
+	summons_number INT,
+	street_code1 INT, 
+	street_code2 INT,
+	street_code3 INT,
+	house_number VARCHAR(15),
+	street_name VARCHAR(30),
+	intersecting_street VARCHAR(20),
+	subdivision VARCHAR(2),
+	meter_number VARCHAR(8),
+	feet_from_curb VARCHAR(4),
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn3 UNIQUE(summons_number), 
+    CONSTRAINT fk_sn3 FOREIGN KEY (summons_number)
+			REFERENCES violation(summons_number)
+			ON DELETE CASCADE
+            ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+-- issuer
+DROP TABLE IF EXISTS issuer;
+CREATE TABLE issuer (
+	summons_number INT,
+	issuer_code VARCHAR(7),
+	issuing_agency CHAR(1),
+	issuer_precinct SMALLINT,
+	issuer_command VARCHAR(10),
+	issuer_squad VARCHAR(4),
+    PRIMARY KEY (summons_number),
+    CONSTRAINT unq_sn4 UNIQUE(summons_number), 
+    CONSTRAINT fk_sn4 FOREIGN KEY (summons_number)
+			REFERENCES violation(summons_number)
+			ON DELETE CASCADE
+            ON UPDATE CASCADE
+) ENGINE=INNODB;
+
 -- populate the tables. 
+INSERT INTO violation
+SELECT DISTINCT summons_number,
+	violation_code,
+	violation_location,
+	violation_precinct,
+	violation_time,
+	violation_county,
+	violation_front_opposite,
+	violation_legal_code,
+	time_first_observed,
+	date_first_observed,
+	days_parking_in_effect,
+	from_hours_in_effect,
+	to_hours_in_effect,
+	violation_post_code,
+	violation_description
+FROM ParkingViolationsMegaTable;
+
 INSERT INTO registration
 SELECT DISTINCT summons_number,
 	plate_id,
@@ -191,24 +219,6 @@ SELECT DISTINCT summons_number,
 	issuer_squad
 FROM ParkingViolationsMegaTable;
 
-INSERT INTO violation
-SELECT DISTINCT summons_number,
-	violation_code,
-	violation_location,
-	violation_precinct,
-	violation_time,
-	violation_county,
-	violation_front_opposite,
-	violation_legal_code,
-	time_first_observed,
-	date_first_observed,
-	days_parking_in_effect,
-	from_hours_in_effect,
-	to_hours_in_effect,
-	violation_post_code,
-	violation_description
-FROM ParkingViolationsMegaTable;
-
 SELECT COUNT(*) FROM ParkingViolationsMegaTable;
 SELECT COUNT(*) FROM registration;
 SELECT COUNT(*) FROM vehicle;
@@ -216,7 +226,26 @@ SELECT COUNT(*) FROM issuer;
 SELECT COUNT(*) FROM violation;
 SELECT COUNT(*) FROM location;
 
-SELECT * FROM violation;
+SELECT * FROM violation
+ORDER BY summons_number;
 
+-- make sure plate_id is populated
+SELECT *, COUNT(*)
+FROM ParkingViolationsMegaTable
+WHERE plate_id > 'B'
+ORDER BY plate_id 
+LIMIT 20;
 
+-- check to make sure that violation_post_code is populated
+SELECT violation_post_code, COUNT(*) FROM violation
+WHERE violation_post_code = ''
+GROUP BY violation_post_code
+ORDER BY violation_post_code ASC;
 
+-- check for non-numeric characters in summons_number
+SELECT summons_number
+FROM violation
+WHERE summons_number REGEXP '^[^0-9]+$';
+
+INSERT INTO violation(summons_number)
+VALUES (2);
