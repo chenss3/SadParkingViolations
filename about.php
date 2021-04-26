@@ -110,7 +110,7 @@
                                                     <th>street_name</th>
                                                     <th>intersecting_street</th>
                                                     <th>date_first_observed</th>
-                                                    <th>law_section</th>
+                                                    <!--<th>law_section</th>-->
                                                     <th>subdivision</th>
                                                     <th>violation_legal_code</th>
                                                     <th>days_parking_in_effect</th>
@@ -126,7 +126,7 @@
                                                 </tr>
                                             </thead >
                                             <tbody>
-                                                <?php foreach ($dbo->query('SELECT summons_number, plate_id, registration_state, plate_type, issue_date, violation_code, 
+                                                <?php /*foreach ($dbo->query('SELECT summons_number, plate_id, registration_state, plate_type, issue_date, violation_code, 
                                                                                                         vehicle_body_type, vehicle_make, issuing_agency, street_code1,
                                                                                                         street_code2, street_code3, vehicle_expiration_date, violation_location, 
                                                                                                         violation_precinct, issuer_precinct, issuer_code, issuer_command, issuer_squad, 
@@ -135,7 +135,9 @@
                                                                                                         subdivision, violation_legal_code, days_parking_in_effect, from_hours_in_effect, 
                                                                                                         to_hours_in_effect, vehicle_color, unregistered_vehicle, vehicle_year, meter_number, 
                                                                                                         feet_from_curb, violation_post_code, violation_description
-                                                                                                from ParkingViolationsMegaTable LIMIT 50') as $row) { ?>
+                                                                                                from ParkingViolationsMegaTable LIMIT 50') as $row) */
+                                                       foreach ($dbo->query('SELECT * from megaView LIMIT 50') as $row)                                             
+                                                { ?>
                                                 <tr>
                                                     <!-- Print (echo) the value of each column of the table -->
                                                     <td><?php echo $row["summons_number"]; ?></td>
@@ -165,7 +167,7 @@
                                                     <td><?php echo $row["street_name"]; ?></td>
                                                     <td><?php echo $row["intersecting_street"]; ?></td>
                                                     <td><?php echo $row["date_first_observed"]; ?></td>
-                                                    <td><?php echo $row["law_section"]; ?></td>
+                                                    <!-- <td><?php echo $row["law_section"]; ?></td> -->
                                                     <td><?php echo $row["subdivision"]; ?></td>
                                                     <td><?php echo $row["violation_legal_code"]; ?></td>
                                                     <td><?php echo $row["days_parking_in_effect"]; ?></td>
