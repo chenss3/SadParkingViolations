@@ -55,5 +55,5 @@ END //
 
 DELIMITER ;
 
-CALL get_all_county_counts();
+-- CALL get_all_county_counts();
 
