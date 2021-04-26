@@ -12,8 +12,8 @@ if (isset($_POST['insertvehicledata'])) {
     $var_unregistered_vehicle= $_POST['unregistered_vehicle'];
     $var_vehicle_year= $_POST['vehicle_year'];
 
-    $query = "INSERT INTO vehicle(summons_number, vehicle_body_type, vehicle_make, vehicle_expiration_date, vehicle_color, unregistered_vehicle, vehicle_year)"
-            . "VALUES (:summons_number, :vehicle_body_type, :vehicle_make, :vehicle_expiration_date, :vehicle_color, :unregistered_vehicle, :vehicle_year)";
+    $query = "INSERT INTO vehicle(summons_number, vehicle_body_type, vehicle_make, vehicle_expiration_date, vehicle_color, unregistered_vehicle, vehicle_year) 
+              VALUES (:summons_number, :vehicle_body_type, :vehicle_make, :vehicle_expiration_date, :vehicle_color, :unregistered_vehicle, :vehicle_year)";
     try
     {
         $prepared_stmt = $dbo->prepare($query);
@@ -25,8 +25,8 @@ if (isset($_POST['insertvehicledata'])) {
         $prepared_stmt->bindValue(':unregistered_vehicle', $var_unregistered_vehicle, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':vehicle_year', $var_vehicle_year, PDO::PARAM_STR);
         $result = $prepared_stmt->execute();
-        echo '<script> alert ("Data Saved"); <script>';
         header('Location: vehicle.php');
+        echo '<script> alert ("Data Saved"); <script>';
  
     }
     catch (PDOException $ex)

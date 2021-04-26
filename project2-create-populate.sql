@@ -143,6 +143,11 @@ CREATE TABLE location (
             ON UPDATE CASCADE
 ) ENGINE=INNODB;
 
+INSERT INTO location(summons_number, street_code1, street_code2, street_code3, 
+                house_number, street_name, intersecting_street, subdivision, meter_number, feet_from_curb)
+                VALUES (1, 2, 3, 4, 5, 
+                6, 7, 8, 9, 0)
+
 -- issuer
 DROP TABLE IF EXISTS issuer;
 CREATE TABLE issuer (

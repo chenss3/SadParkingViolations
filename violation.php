@@ -69,11 +69,11 @@
                 <div class="modal-body">
                         <div class="form_group">
                                 <label>Summons Number</label>
-                                <input type="text" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
+                                <input type="number" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
                         </div>
                         <div class="form_group">
                                 <label>Violation Code</label>
-                                <input type="text" name = "violation_code" class="form-control" placeholder="Enter Violation Code">
+                                <input type="number" name = "violation_code" class="form-control" placeholder="Enter Violation Code">
                         </div>
                         <div class="form_group">
                                 <label>Violation Location</label>
@@ -81,7 +81,7 @@
                         </div>            
                         <div class="form_group">
                                 <label>Violation Precinct</label>
-                                <input type="text" name = "violation_precinct" class="form-control" placeholder="Enter Violation Precinct">
+                                <input type="number" name = "violation_precinct" class="form-control" placeholder="Enter Violation Precinct">
                         </div>
                         <div class="form_group">
                                 <label>Violation Time</label>
@@ -151,7 +151,7 @@
                     <input type="hidden" name="update_summons" id="update_summons">
                     <div class="form_group">
                                 <label>Violation Code</label>
-                                <input type="text" name = "violation_code" id = "violation_code" class="form-control" placeholder="Enter Violation Code">
+                                <input type="number" name = "violation_code" id = "violation_code" class="form-control" placeholder="Enter Violation Code">
                     </div>
                     <div class="form_group">
                             <label>Violation Location</label>
@@ -159,7 +159,7 @@
                     </div>            
                     <div class="form_group">
                             <label>Violation Precinct</label>
-                            <input type="text" name = "violation_precinct" id = "violation_precinct" class="form-control" placeholder="Enter Violation Precinct">
+                            <input type="number" name = "violation_precinct" id = "violation_precinct" class="form-control" placeholder="Enter Violation Precinct">
                     </div>
                     <div class="form_group">
                             <label>Violation Time</label>

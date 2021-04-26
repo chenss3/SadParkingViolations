@@ -5,20 +5,20 @@
 
 
 -- validate that vehicle's expiration date is after the current date. 
-DROP TRIGGER IF EXISTS validate_vehicle;
+-- DROP TRIGGER IF EXISTS validate_vehicle;
 
-DELIMITER // 
+-- DELIMITER // 
 
-CREATE TRIGGER validate_vehicle
-BEFORE INSERT ON vehicle
-FOR EACH ROW 
-BEGIN 
-	IF NEW.vehicle_expiration_date < CURDATE() THEN 
-		SET NEW.vehicle_expiration_date = CURDATE();
-    END IF;
-END // 
+-- CREATE TRIGGER validate_vehicle
+-- BEFORE INSERT ON vehicle
+-- FOR EACH ROW 
+-- BEGIN 
+-- 	IF NEW.vehicle_expiration_date < CURDATE() THEN 
+-- 		SET NEW.vehicle_expiration_date = CURDATE();
+--     END IF;
+-- END // 
 
-DELIMITER ;
+-- DELIMITER ;
 
 
 -- MAKE SURE TO INSERT INTO VIOLATION BEFORE TRYING TO INSERT INTO issuer, location, registration, vehicle
@@ -91,4 +91,6 @@ INSERT INTO registration(summons_number)
 values(3);
 INSERT INTO vehicle(summons_number)
 values(4);
+
+SELECT * FROM violation;
 

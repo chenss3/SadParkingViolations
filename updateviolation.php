@@ -25,12 +25,14 @@ if (isset($_POST['updateviolationdata'])) {
     violation_precinct='$var_violation_precinct', violation_time='$var_violation_time', violation_county='$var_violation_county', 
     violation_front_opposite='$var_violation_front_opposite', violation_legal_code='$var_violation_legal_code',
     time_first_observed='$var_time_first_observed', date_first_observed='$var_date_first_observed', days_parking_in_effect='$var_days_parking_in_effect',
-    from_hours_in_effect='$var_from_hours_in_effect', to_hours_in_effect='$to_hours_in_effect', violation_post_code='$var_violation_post_code',
+    from_hours_in_effect='$var_from_hours_in_effect', to_hours_in_effect='$var_to_hours_in_effect', violation_post_code='$var_violation_post_code',
     violation_description='$var_violation_description' WHERE summons_number = '$var_summons_number'";
 
     try
     {
+        
         $prepared_stmt = $dbo->prepare($query);
+        /*
         $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':violation_code', $var_violation_code, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':violation_location', $var_violation_location, PDO::PARAM_STR);
@@ -46,9 +48,11 @@ if (isset($_POST['updateviolationdata'])) {
         $prepared_stmt->bindValue(':to_hours_in_effect', $var_to_hours_in_effect, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':violation_post_code', $var_violation_post_code, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':violation_description', $var_violation_description, PDO::PARAM_STR);
+        */
         $result = $prepared_stmt->execute();
-        echo '<script> alert ("Data Saved"); <script>';
         header('Location: violation.php');
+        echo '<script> alert ("Data Saved"); </script>';
+        
  
     }
     catch (PDOException $ex)
