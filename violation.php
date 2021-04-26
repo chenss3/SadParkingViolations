@@ -47,7 +47,7 @@
     <div class="main" text-align="right">
         <div class="centerblock"> 
             <div class="square" style="background-color: #d8daeb; left: 200px; width:650px; height: 400px; border-radius: 10px;">
-                <h4><b>Violation Table</b></h4>
+                <h4><b>Violation and Violation Audit</b></h4>
             </div> 
         </div> 
         <div id="box1">
