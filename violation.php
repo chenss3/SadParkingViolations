@@ -320,6 +320,53 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="jumbotron" style="background-color: #fff">
+            <div class="card">
+                <div class="card-body">
+                <?php 
+                    try{
+                        include('conn.php');
+                    ?>
+                    <table id="datatableid" class="table table-bordered" style="max-height: 500px; overflow: scroll">
+                        <thead>
+                                <th scope="col" style="background-color: #65c3ba">Audit ID</th>
+                                <th scope="col" style="background-color:#65c3ba">Summons Number</th>
+                                <th scope="col" style="background-color:#65c3ba">Violation Code</th>
+                                <th scope="col" style="background-color: #65c3ba">Violation Legal Code</th>
+                                <th scope="col" style="background-color: #65c3ba">Date First Observed</th>
+                                <th scope="col" style="background-color: #65c3ba">Violation Description</th>
+                                <th scope="col" style="background-color: #65c3ba">Date Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                foreach ($dbo->query('SELECT * from violations_audit') as $row) {
+                            ?>
+                            <tr>
+                                <td><?php echo $row["audit_id"]; ?></td>
+                                <td><?php echo $row["summons_number"]; ?></td>
+                                <td><?php echo $row["violation_code"]; ?></td>
+                                <td><?php echo $row["violation_legal_code"]; ?></td>
+                                <td><?php echo $row["date_first_observed"]; ?></td>
+                                <td><?php echo $row["violation_description"]; ?></td>
+                                <td><?php echo $row["date_updated"]; ?></td>
+                            </tr>
+                        <?php
+                                }
+                            }
+                            catch (PDOException $e) {?>
+                        </tbody>
+                        <?php
+                        //Will tell us our error message if the connection doesn't work etc
+                        print "Error!: " . $e->getMessage() . "<br/>";
+                        die();
+                    } 
+                    ?>
+                    </table>
+                </div>
+            </div>
+        </div>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
