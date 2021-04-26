@@ -16,8 +16,6 @@ if (isset($_POST['insertlocationdata'])) {
     $var_meter_number = $_POST['meter_number'];
     $var_feet_from_curb = $_POST['feet_from_curb'];
 
-
-    
     $query = "INSERT INTO location(summons_number, street_code1, street_code2, street_code3, 
                 house_number, street_name, intersecting_street, subdivision, meter_number, feet_from_curb"
             . "VALUES (:summons_number, :street_code1, :street_code2, :street_code3, :house_number, 
