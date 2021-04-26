@@ -19,7 +19,7 @@ if (isset($_POST['updatevehicledata'])) {
     try
     {
         $prepared_stmt = $dbo->prepare($query);
-        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
+        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':vehicle_body_type', $var_vehicle_body_type, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':vehicle_make', $var_vehicle_make, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':vehicle_expiration_date', $var_vehicle_expiration_date, PDO::PARAM_STR);

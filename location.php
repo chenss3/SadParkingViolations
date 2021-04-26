@@ -72,20 +72,20 @@
     
                         <div class="summons_number">
                             <label>Summons Number</label>
-                            <input type="text" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
+                            <input type="number" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
                         </div>
                         <div class="form-group">
                             <label>Street Code 1</label>
-                            <input type="text" name = "street_code1" class="form-control" placeholder="Enter Street Code 1">
+                            <input type="number" name = "street_code1" class="form-control" placeholder="Enter Street Code 1">
                         </div>
                         <div class="form-group">
                             <label>Street Code 2</label>
-                            <input type="text" name = "street_code2" class="form-control" placeholder="Enter Street Code 2">
+                            <input type="number" name = "street_code2" class="form-control" placeholder="Enter Street Code 2">
                         </div>
 
                         <div class="form-group">
                             <label>Street Code 3</label>
-                            <input type="text" name = "street_code3" class="form-control" placeholder="Enter Street Code 3">
+                            <input type="number" name = "street_code3" class="form-control" placeholder="Enter Street Code 3">
                         </div>
 
                         <div class="form-group">

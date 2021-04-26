@@ -6,11 +6,11 @@ include('conn.php');
 if (isset($_POST['deletedata'])) {
     $var_summons_number= $_POST['delete_summons'];
 
-    $query = "DELETE FROM vehicle WHERE summons_number = '$var_summons_number' ";
+    $query = "DELETE FROM vehicle WHERE summons_number = :summons_number ";
     try
     {
         $prepared_stmt = $dbo->prepare($query);
-        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
+        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_INT);
         $result = $prepared_stmt->execute();
         echo '<script> alert ("Data Deleted"); <script>';
         header('Location: vehicle.php');

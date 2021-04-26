@@ -17,7 +17,7 @@ if (isset($_POST['insertlocationdata'])) {
         include('conn.php');
         
         $prepared_stmt = $dbo->prepare($query);
-        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
+        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':plate_id', $var_plate_id, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':registration_state', $var_registration_state, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':issue_date', $var_issue_date, PDO::PARAM_STR);
