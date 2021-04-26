@@ -31,7 +31,9 @@ CREATE PROCEDURE get_all_subdivision_counts()
 BEGIN 
 	SELECT subdivision, COUNT(*) AS count
     FROM location
-    GROUP BY subdivision;
+    GROUP BY subdivision
+    ORDER BY COUNT(*) DESC
+    LIMIT 10;
 END // 
 
 DELIMITER ;
