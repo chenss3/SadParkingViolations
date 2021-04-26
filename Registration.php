@@ -73,19 +73,19 @@
                         </div>
                         <div class="form_group">
                                 <label>Plate ID</label>
-                                <input type="text" name = "plate_id" class="form-control" placeholder="Enter Plate ID">
+                                <input type="text" maxlength="20" name = "plate_id" class="form-control" placeholder="Enter Plate ID">
                         </div>
                         <div class="form_group">
                                 <label>Registration State</label>
-                                <input type="text" name = "registration_state" class="form-control" placeholder="Enter Registration State">
+                                <input type="text" maxlength="2" name = "registration_state" class="form-control" placeholder="Enter Registration State">
                         </div>            
                         <div class="form_group">
                                 <label>Issue Date</label>
-                                <input type="text" name = "issue_date" class="form-control" placeholder="Enter Issue Date">
+                                <input type="text" maxlength="10" name = "issue_date" class="form-control" placeholder="Enter Issue Date">
                         </div>
                         <div class="form_group">
                                 <label>Plate Type</label>
-                                <input type="text" name = "plate_type" class="form-control" placeholder="Enter Plate Type">
+                                <input type="text" maxlength="3" name = "plate_type" class="form-control" placeholder="Enter Plate Type">
                         </div>
                     
                 </div>
@@ -112,19 +112,19 @@
                     <input type="hidden" name="update_summons" id="update_summons">
                     <div class="form_group">
                             <label>Plate ID</label>
-                            <input type="text" id="plate_id" name = "plate_id" class="form-control" placeholder="Enter Plate ID">
+                            <input type="text" maxlength="20" id="plate_id" name = "plate_id" class="form-control" placeholder="Enter Plate ID">
                     </div>
                     <div class="form_group">
                             <label>Registration State</label>
-                            <input type="text" id="registration_state" name = "registration_state" class="form-control" placeholder="Enter Registration State">
+                            <input type="text" maxlength="2" id="registration_state" name = "registration_state" class="form-control" placeholder="Enter Registration State">
                     </div>            
                     <div class="form_group">
                             <label>Issue Date</label>
-                            <input type="text" id="issue_date" name = "issue_date" class="form-control" placeholder="Enter Issue Date">
+                            <input type="text" maxlength="10" id="issue_date" name = "issue_date" class="form-control" placeholder="Enter Issue Date">
                     </div>
                     <div class="form_group">
                             <label>Plate Type</label>
-                            <input type="text" id="plate_type" name = "plate_type" class="form-control" placeholder="Enter Plate Type">
+                            <input type="text" maxlength="3" id="plate_type" name = "plate_type" class="form-control" placeholder="Enter Plate Type">
                     </div>
                     
                 </div>

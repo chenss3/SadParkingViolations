@@ -67,66 +67,66 @@
             </div>
             <form action="insertviolation.php" method="POST">
                 <div class="modal-body">
-                        <div class="form_group">
-                                <label>Summons Number</label>
-                                <input type="number" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
-                        </div>
-                        <div class="form_group">
-                                <label>Violation Code</label>
-                                <input type="number" name = "violation_code" class="form-control" placeholder="Enter Violation Code">
-                        </div>
-                        <div class="form_group">
-                                <label>Violation Location</label>
-                                <input type="text" name = "violation_location" class="form-control" placeholder="Enter Violation Location">
-                        </div>            
-                        <div class="form_group">
-                                <label>Violation Precinct</label>
-                                <input type="number" name = "violation_precinct" class="form-control" placeholder="Enter Violation Precinct">
-                        </div>
-                        <div class="form_group">
-                                <label>Violation Time</label>
-                                <input type="text" name = "violation_time" class="form-control" placeholder="Enter Violation Time">
-                        </div>
-                        <div class="form_group">
-                                <label>Violation County</label>
-                                <input type="text" name = "violation_county" class="form-control" placeholder="Enter Violation County">
-                        </div>
-                        <div class="form_group">
-                                <label>Violation Front Opposite</label>
-                                <input type="text" name = "violation_front_opposite" class="form-control" placeholder="Enter Violation Front Opposite">
-                        </div>
-                        <div class="form_group">
-                                <label>Violation Legal Code</label>
-                                <input type="text" name = "violation_legal_code" class="form-control" placeholder="Enter Violation Legal Code">
-                        </div>
-                        <div class="form_group">
-                                <label>Time First Oberved</label>
-                                <input type="text" name = "time_first_observed" class="form-control" placeholder="Enter Time First Observed">
-                        </div>
-                        <div class="form_group">
-                                <label>Date First Oberved</label>
-                                <input type="text" name = "date_first_observed" class="form-control" placeholder="Enter Date First Oberved">
-                        </div>
-                        <div class="form_group">
-                                <label>Days Parking in Effect</label>
-                                <input type="text" name = "days_parking_in_effect" class="form-control" placeholder="Enter Days Parking in Effect">
-                        </div>
-                        <div class="form_group">
-                                <label>From Hours in Effect</label>
-                                <input type="text" name = "from_hours_in_effect" class="form-control" placeholder="Enter From Hours in Effect">
-                        </div>
-                        <div class="form_group">
-                                <label>To Hours in Effect</label>
-                                <input type="text" name = "to_hours_in_effect" class="form-control" placeholder="Enter To Hours in Effect">
-                        </div>
-                        <div class="form_group">
-                                <label>Violation Post Code</label>
-                                <input type="text" name = "violation_post_code" class="form-control" placeholder="Enter Violation Post Code">
-                        </div>
-                        <div class="form_group">
-                                <label>Violation Description</label>
-                                <input type="text" name = "violation_description" class="form-control" placeholder="Enter Violation Description">
-                        </div>
+                    <div class="form_group">
+                            <label>Summons Number</label>
+                            <input type="number" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Code</label>
+                            <input type="number" name = "violation_code" class="form-control" placeholder="Enter Violation Code">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Location</label>
+                            <input type="text" maxlength="5" name = "violation_location" class="form-control" placeholder="Enter Violation Location">
+                    </div>            
+                    <div class="form_group">
+                            <label>Violation Precinct</label>
+                            <input type="number" name = "violation_precinct" class="form-control" placeholder="Enter Violation Precinct">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Time</label>
+                            <input type="text" maxlength="5" name = "violation_time" class="form-control" placeholder="Enter Violation Time">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation County</label>
+                            <input type="text" maxlength = "2" name = "violation_county" class="form-control" placeholder="Enter Violation County">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Front Opposite</label>
+                            <input type="text" maxlength="2" name = "violation_front_opposite" class="form-control" placeholder="Enter Violation Front Opposite">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Legal Code</label>
+                            <input type="text" maxlength="1" name = "violation_legal_code" class="form-control" placeholder="Enter Violation Legal Code">
+                    </div>
+                    <div class="form_group">
+                            <label>Time First Oberved</label>
+                            <input type="text" maxlength="5" name = "time_first_observed" class="form-control" placeholder="Enter Time First Observed">
+                    </div>
+                    <div class="form_group">
+                            <label>Date First Oberved</label>
+                            <input type="text" maxlength="10" name = "date_first_observed" class="form-control" placeholder="Enter Date First Oberved">
+                    </div>
+                    <div class="form_group">
+                            <label>Days Parking in Effect</label>
+                            <input type="text" maxlength="7" name = "days_parking_in_effect" class="form-control" placeholder="Enter Days Parking in Effect">
+                    </div>
+                    <div class="form_group">
+                            <label>From Hours in Effect</label>
+                            <input type="text" maxlength="5" name = "from_hours_in_effect" class="form-control" placeholder="Enter From Hours in Effect">
+                    </div>
+                    <div class="form_group">
+                            <label>To Hours in Effect</label>
+                            <input type="text" maxlength="5" name = "to_hours_in_effect" class="form-control" placeholder="Enter To Hours in Effect">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Post Code</label>
+                            <input type="text" maxlength="6" name = "violation_post_code" class="form-control" placeholder="Enter Violation Post Code">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Description</label>
+                            <input type="text" name = "violation_description" class="form-control" placeholder="Enter Violation Description">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -155,7 +155,7 @@
                     </div>
                     <div class="form_group">
                             <label>Violation Location</label>
-                            <input type="text" name = "violation_location" id = "violation_location" class="form-control" placeholder="Enter Violation Location">
+                            <input type="text" maxlength="5" name = "violation_location" id = "violation_location" class="form-control" placeholder="Enter Violation Location">
                     </div>            
                     <div class="form_group">
                             <label>Violation Precinct</label>
@@ -163,43 +163,43 @@
                     </div>
                     <div class="form_group">
                             <label>Violation Time</label>
-                            <input type="text" name = "violation_time" id = "violation_time" class="form-control" placeholder="Enter Violation Time">
+                            <input type="text" maxlength="5" name = "violation_time" id = "violation_time" class="form-control" placeholder="Enter Violation Time">
                     </div>
                     <div class="form_group">
                             <label>Violation County</label>
-                            <input type="text" name = "violation_county" id = "violation_county" class="form-control" placeholder="Enter Violation County">
+                            <input type="text" maxlength = "2" name = "violation_county" id = "violation_county" class="form-control" placeholder="Enter Violation County">
                     </div>
                     <div class="form_group">
                             <label>Violation Front Opposite</label>
-                            <input type="text" name = "violation_front_opposite" id = "violation_front_opposite"  class="form-control" placeholder="Enter Violation Front Opposite">
+                            <input type="text" maxlength="2" name = "violation_front_opposite" id = "violation_front_opposite"  class="form-control" placeholder="Enter Violation Front Opposite">
                     </div>
                     <div class="form_group">
                             <label>Violation Legal Code</label>
-                            <input type="text" name = "violation_legal_code" id = "violation_legal_code" class="form-control" placeholder="Enter Violation Legal Code">
+                            <input type="text" maxlength="1" name = "violation_legal_code" id = "violation_legal_code" class="form-control" placeholder="Enter Violation Legal Code">
                     </div>
                     <div class="form_group">
                             <label>Time First Oberved</label>
-                            <input type="text" name = "time_first_observed" id = "time_first_observed" class="form-control" placeholder="Enter Time First Observed">
+                            <input type="text" maxlength="5" name = "time_first_observed" id = "time_first_observed" class="form-control" placeholder="Enter Time First Observed">
                     </div>
                     <div class="form_group">
                             <label>Date First Oberved</label>
-                            <input type="text" name = "date_first_observed" id = "date_first_observed" class="form-control" placeholder="Enter Date First Oberved">
+                            <input type="text" maxlength="10" name = "date_first_observed" id = "date_first_observed" class="form-control" placeholder="Enter Date First Oberved">
                     </div>
                     <div class="form_group">
                             <label>Days Parking in Effect</label>
-                            <input type="text" name = "days_parking_in_effect" id = "days_parking_in_effect" class="form-control" placeholder="Enter Days Parking in Effect">
+                            <input type="text" maxlength="7" name = "days_parking_in_effect" id = "days_parking_in_effect" class="form-control" placeholder="Enter Days Parking in Effect">
                     </div>
                     <div class="form_group">
                             <label>From Hours in Effect</label>
-                            <input type="text" name = "from_hours_in_effect" id = "from_hours_in_effect" class="form-control" placeholder="Enter From Hours in Effect">
+                            <input type="text" maxlength="5" name = "from_hours_in_effect" id = "from_hours_in_effect" class="form-control" placeholder="Enter From Hours in Effect">
                     </div>
                     <div class="form_group">
                             <label>To Hours in Effect</label>
-                            <input type="text" name = "to_hours_in_effect" id = "to_hours_in_effect" class="form-control" placeholder="Enter To Hours in Effect">
+                            <input type="text" maxlength="5" name = "to_hours_in_effect" id = "to_hours_in_effect" class="form-control" placeholder="Enter To Hours in Effect">
                     </div>
                     <div class="form_group">
                             <label>Violation Post Code</label>
-                            <input type="text" name = "violation_post_code" id = "violation_post_code" class="form-control" placeholder="Enter Violation Post Code">
+                            <input type="text" maxlength="6" name = "violation_post_code" id = "violation_post_code" class="form-control" placeholder="Enter Violation Post Code">
                     </div>
                     <div class="form_group">
                             <label>Violation Description</label>
