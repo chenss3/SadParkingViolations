@@ -72,7 +72,7 @@
     
                         <div class="summons_number">
                             <label>Summons Number</label>
-                            <input type="text" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
+                            <input type="number" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
                         </div>
                         <div class="form-group">
                             <label>Street Code 1</label>

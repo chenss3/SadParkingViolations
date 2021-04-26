@@ -31,7 +31,7 @@ if (isset($_POST['updateviolationdata'])) {
     try
     {
         $prepared_stmt = $dbo->prepare($query);
-        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
+        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':violation_code', $var_violation_code, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':violation_location', $var_violation_location, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':violation_precinct', $var_violation_precinct, PDO::PARAM_INT);

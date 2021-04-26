@@ -2,7 +2,7 @@
 
 include('conn.php');
 
-if (isset($_POST['insertlocationdata'])) {
+if (isset($_POST['insertvehicledata'])) {
 
     $var_summons_number= $_POST['summons_number'];
     $var_vehicle_body_type= $_POST['vehicle_body_type'];
@@ -17,7 +17,7 @@ if (isset($_POST['insertlocationdata'])) {
     try
     {
         $prepared_stmt = $dbo->prepare($query);
-        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
+        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':vehicle_body_type', $var_vehicle_body_type, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':vehicle_make', $var_vehicle_make, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':vehicle_expiration_date', $var_vehicle_expiration_date, PDO::PARAM_STR);

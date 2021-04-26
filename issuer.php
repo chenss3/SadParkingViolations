@@ -71,7 +71,7 @@
                     
                         <div class="summons_number">
                             <label>Summons Number</label>
-                            <input type="text" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
+                            <input type="number" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
                         </div>
                         <div class="form-group">
                             <label>Issuer Code</label>
@@ -213,7 +213,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                foreach ($dbo->query('SELECT * from issuer ORDER BY issuer_code ASC LIMIT 50 ') as $row) {
+                                foreach ($dbo->query('SELECT * from issuer ORDER BY summons_number ASC LIMIT 50 ') as $row) {
                             ?>
                             <tr>
                                 <td><?php echo $row["summons_number"]; ?></td>

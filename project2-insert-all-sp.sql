@@ -108,23 +108,6 @@ END //
 DELIMITER ;
 
 
--- validate that vehicle's expiration date is after the current date. 
-DROP TRIGGER IF EXISTS validate_vehicle;
-
-DELIMITER // 
-
-CREATE TRIGGER validate_vehicle
-BEFORE INSERT ON vehicle
-FOR EACH ROW 
-BEGIN 
-	IF NEW.vehicle_expiration_date < CURDATE() THEN 
-		SET NEW.vehicle_expiration_date = CURDATE();
-    END IF;
-END // 
-
-DELIMITER ;
-
-
 -- TEST THE insert_incident STORED PROCEDURE
 
 -- call insert_incident(
@@ -169,7 +152,3 @@ DELIMITER ;
 -- 	'4',
 -- 	'FIRE HYDRANT VIOLATION'
 -- );
-
--- SELECT * 
--- FROM issuer
--- WHERE summons_number = '1010011';

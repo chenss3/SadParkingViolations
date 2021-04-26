@@ -60,7 +60,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Vehicle Data</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -69,7 +69,7 @@
                 <div class="modal-body">
                         <div class="form_group">
                                 <label>Summons Number</label>
-                                <input type="text" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
+                                <input type="number" name = "summons_number" class="form-control" placeholder="Enter Summons Number">
                         </div>
                         <div class="form_group">
                                 <label>Vehicle Body Type</label>
@@ -98,7 +98,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" name = "insertlocationdata" class="btn btn-primary">Save Data</button>
+                    <button type="submit" name = "insertvehicledata" class="btn btn-primary">Save Data</button>
                 </div>
             </form>
             </div>
@@ -182,7 +182,7 @@
             <div class="card">
                 <div class="card-body">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vehicleaddmodal" style="background-color: #8EA4C8; border: none">
-                        Add Registration Data
+                        Add Data
                     </button>
                 </div>
             </div>

@@ -25,7 +25,7 @@ if (isset($_POST['insertlocationdata'])) {
     try
     {
         $prepared_stmt = $dbo->prepare($query);
-        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
+        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':street_code1', $var_street_code1, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':street_code2', $var_street_code2, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':street_code3', $var_street_code3, PDO::PARAM_INT);

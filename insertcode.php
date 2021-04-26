@@ -16,7 +16,7 @@ if (isset($_POST['insertdata'])) {
     try
     {
         $prepared_stmt = $dbo->prepare($query);
-        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_STR);
+        $prepared_stmt->bindValue(':summons_number', $var_summons_number, PDO::PARAM_INT);
         $prepared_stmt->bindValue(':issuer_code', $var_issuer_code, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':issuing_agency', $var_issuing_agency, PDO::PARAM_STR);
         $prepared_stmt->bindValue(':issuer_precinct', $var_issuer_precinct, PDO::PARAM_INT);
