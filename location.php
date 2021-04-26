@@ -24,20 +24,20 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="issuer.php" class="nav-link">Issuer</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tables
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"  href="issuer.php" class="nav-link">Issuer</a>
+                                <a class="dropdown-item"  href="Location.php" class="nav-link">Location</a>
+                                <a class="dropdown-item"  href="Registration.php" class="nav-link">Registration</a>
+                                <a class="dropdown-item"  href="vehicle.php" class="nav-link">Vehicle</a>
+                                <a class="dropdown-item"  href="violation.php" class="nav-link">Violation</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a href="location.php" class="nav-link">Location</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="registration.php" class="nav-link">Registration</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="vehicle.php" class="nav-link">Vehicle</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="violation.php" class="nav-link">Violation</a>
+                            <a href="#" class="nav-link">Statistics</a>
                         </li>
                     </ul>
                 </div>
@@ -52,7 +52,7 @@
         </div> 
         <div id="box1">
         <div class="police-image">
-            <img src="location-image.png" height=520px>
+            <img src="location-image.jpeg" height=530px>
         </div>
     </div>
     
@@ -134,7 +134,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Issuer Data</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Location Data</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -143,51 +143,47 @@
                     <div class="modal-body">
                         <input type="hidden" name = "update_summons" id = "update_summons"> 
                         <div class="form-group">
-                            <label>Issuer Code</label>
-                            <input type="text" name = "issuer_code" id="issuer_code" class="form-control" placeholder="Enter Issuer Code">
-                        </div>
-                        <div class="form-group">
                             <label>Street Code 1</label>
-                            <input type="text" name = "street_code1" class="form-control" placeholder="Enter Street Code 1">
+                            <input type="text" name = "street_code1" id = "street_code1" class="form-control" placeholder="Enter Street Code 1">
                         </div>
                         <div class="form-group">
                             <label>Street Code 2</label>
-                            <input type="text" name = "street_code2" class="form-control" placeholder="Enter Street Code 2">
+                            <input type="text" name = "street_code2" id = "street_code2" class="form-control" placeholder="Enter Street Code 2">
                         </div>
 
                         <div class="form-group">
                             <label>Street Code 3</label>
-                            <input type="text" name = "street_code3" class="form-control" placeholder="Enter Street Code 3">
+                            <input type="text" name = "street_code3" id = "street_code3" class="form-control" placeholder="Enter Street Code 3">
                         </div>
 
                         <div class="form-group">
                             <label>House Number</label>
-                            <input type="text" name = "house_number" class="form-control" placeholder="Enter House Number">
+                            <input type="text" name = "house_number" id = "house_number" class="form-control" placeholder="Enter House Number">
                         </div>
 
                         <div class="form-group">
                             <label>Street Name</label>
-                            <input type="text" name = "street_name" class="form-control" placeholder="Enter Street Name">
+                            <input type="text" name = "street_name" id = "street_name" class="form-control" placeholder="Enter Street Name">
                         </div>
 
                         <div class="form-group">
                             <label>Intersecting Street</label>
-                            <input type="text" name = "intersecting_street" class="form-control" placeholder="Enter Intersecting Street">
+                            <input type="text" name = "intersecting_street" id = "intersecting_street" class="form-control" placeholder="Enter Intersecting Street">
                         </div>
 
                         <div class="form-group">
                             <label>Subdivision</label>
-                            <input type="text" name = "subdivision" class="form-control" placeholder="Enter Subdivision">
+                            <input type="text" name = "subdivision" id = "subdivision" class="form-control" placeholder="Enter Subdivision">
                         </div>
                     
                         <div class="form-group">
                             <label>Meter Number</label>
-                            <input type="text" name = "meter_number" class="form-control" placeholder="Enter Meter Number">
+                            <input type="text" name = "meter_number" id = "meter_number" class="form-control" placeholder="Enter Meter Number">
                         </div>
 
                         <div class="form-group">
                             <label>Feet From Curb</label>
-                            <input type="text" name = "feet_from_curb" class="form-control" placeholder="Feet From Curb">
+                            <input type="text" name = "feet_from_curb" id = "feet_from_curb" class="form-control" placeholder="Feet From Curb">
                         </div>
                         
                     </div>
@@ -206,7 +202,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Issuer Data</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Location Data</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -352,6 +348,7 @@ $(document).ready(function(){
             return $(this).text()
         }).get();
         console.log(data);
+        
         $('#update_summons').val(data[0]);
         $('#street_code1').val(data[1]);
         $('#street_code2').val(data[2]);

@@ -24,24 +24,35 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="issuer.php" class="nav-link">Issuer</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tables
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"  href="issuer.php" class="nav-link">Issuer</a>
+                                <a class="dropdown-item"  href="Location.php" class="nav-link">Location</a>
+                                <a class="dropdown-item"  href="Registration.php" class="nav-link">Registration</a>
+                                <a class="dropdown-item"  href="vehicle.php" class="nav-link">Vehicle</a>
+                                <a class="dropdown-item"  href="violation.php" class="nav-link">Violation</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a href="location.php" class="nav-link">Location</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="registration.php" class="nav-link">Registration</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="vehicle.php" class="nav-link">Vehicle</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="violation.php" class="nav-link">Violation</a>
+                            <a href="#" class="nav-link">Statistics</a>
                         </li>
                     </ul>
                 </div>
             </nav>
+        </div>
+    </div>
+    <div class="main" text-align="right">
+        <div class="centerblock"> 
+            <div class="square" style="background-color: #d8daeb; left: 200px; width:650px; height: 400px; border-radius: 10px;">
+                <h4><b>Violation Table</b></h4>
+            </div> 
+        </div> 
+        <div id="box1">
+        <div class="police-image">
+            <img src="violation-image.png" height=550px>
         </div>
     </div>
     <!-- Add Modal -->
@@ -139,22 +150,61 @@
                 <div class="modal-body">
                     <input type="hidden" name="update_summons" id="update_summons">
                     <div class="form_group">
-                            <label>Plate ID</label>
-                            <input type="text" id="plate_id" name = "plate_id" class="form-control" placeholder="Enter Plate ID">
+                                <label>Violation Code</label>
+                                <input type="text" name = "violation_code" id = "violation_code" class="form-control" placeholder="Enter Violation Code">
                     </div>
                     <div class="form_group">
-                            <label>Registration State</label>
-                            <input type="text" id="registration_state" name = "registration_state" class="form-control" placeholder="Enter Registration State">
+                            <label>Violation Location</label>
+                            <input type="text" name = "violation_location" id = "violation_location" class="form-control" placeholder="Enter Violation Location">
                     </div>            
                     <div class="form_group">
-                            <label>Issue Date</label>
-                            <input type="text" id="issue_date" name = "issue_date" class="form-control" placeholder="Enter Issue Date">
+                            <label>Violation Precinct</label>
+                            <input type="text" name = "violation_precinct" id = "violation_precinct" class="form-control" placeholder="Enter Violation Precinct">
                     </div>
                     <div class="form_group">
-                            <label>Plate Type</label>
-                            <input type="text" id="plate_type" name = "plate_type" class="form-control" placeholder="Enter Plate Type">
+                            <label>Violation Time</label>
+                            <input type="text" name = "violation_time" id = "violation_time" class="form-control" placeholder="Enter Violation Time">
                     </div>
-                    
+                    <div class="form_group">
+                            <label>Violation County</label>
+                            <input type="text" name = "violation_county" id = "violation_county" class="form-control" placeholder="Enter Violation County">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Front Opposite</label>
+                            <input type="text" name = "violation_front_opposite" id = "violation_front_opposite"  class="form-control" placeholder="Enter Violation Front Opposite">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Legal Code</label>
+                            <input type="text" name = "violation_legal_code" id = "violation_legal_code" class="form-control" placeholder="Enter Violation Legal Code">
+                    </div>
+                    <div class="form_group">
+                            <label>Time First Oberved</label>
+                            <input type="text" name = "time_first_observed" id = "time_first_observed" class="form-control" placeholder="Enter Time First Observed">
+                    </div>
+                    <div class="form_group">
+                            <label>Date First Oberved</label>
+                            <input type="text" name = "date_first_observed" id = "date_first_observed" class="form-control" placeholder="Enter Date First Oberved">
+                    </div>
+                    <div class="form_group">
+                            <label>Days Parking in Effect</label>
+                            <input type="text" name = "days_parking_in_effect" id = "days_parking_in_effect" class="form-control" placeholder="Enter Days Parking in Effect">
+                    </div>
+                    <div class="form_group">
+                            <label>From Hours in Effect</label>
+                            <input type="text" name = "from_hours_in_effect" id = "from_hours_in_effect" class="form-control" placeholder="Enter From Hours in Effect">
+                    </div>
+                    <div class="form_group">
+                            <label>To Hours in Effect</label>
+                            <input type="text" name = "to_hours_in_effect" id = "to_hours_in_effect" class="form-control" placeholder="Enter To Hours in Effect">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Post Code</label>
+                            <input type="text" name = "violation_post_code" id = "violation_post_code" class="form-control" placeholder="Enter Violation Post Code">
+                    </div>
+                    <div class="form_group">
+                            <label>Violation Description</label>
+                            <input type="text" name = "violation_description" id = "violation_description" class="form-control" placeholder="Enter Violation Description">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -170,7 +220,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Issuer Data</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Violation Data</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -305,12 +355,22 @@ $(document).ready(function(){
             return $(this).text()
         }).get();
         console.log(data);
+        
         $('#update_summons').val(data[0]);
-        $('#plate_id').val(data[1]);
-        $('#registration_state').val(data[2]);
-        $('#issue_date').val(data[3]);
-        $('#plate_type').val(data[4]);
-        $('#issuer_squad').val(data[5]);
+        $('#violation_code').val(data[1]);
+        $('#violation_location').val(data[2]);
+        $('#violation_precinct').val(data[3]);
+        $('#violation_time').val(data[4]);
+        $('#violation_county').val(data[5]);
+        $('#violation_front_opposite').val(data[6]);
+        $('#violation_legal_code').val(data[7]);
+        $('#time_first_observed').val(data[8]);
+        $('#date_first_observed').val(data[9]);
+        $('#days_parking_in_effect').val(data[10]);
+        $('#from_hours_in_effect').val(data[11]);
+        $('#to_hours_in_effect').val(data[12]);
+        $('#violation_post_code').val(data[13]);
+        $('#violation_description').val(data[14]);
     });
 });
 </script>
