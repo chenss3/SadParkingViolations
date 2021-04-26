@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number BIGINT,
 -- '/Applications/MAMP/htdocs/Project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
 
 -- Loads the data
-LOAD DATA LOCAL INFILE 'C://wamp64/www/SadParkingViolations/jack-project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
+LOAD DATA LOCAL INFILE 'Applications/MAMP/htdocs/Project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
 INTO TABLE ParkingViolationsMegaTable
 FIELDS TERMINATED BY ',' 
 OPTIONALLY ENCLOSED BY '"'
