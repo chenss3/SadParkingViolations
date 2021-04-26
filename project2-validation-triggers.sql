@@ -83,14 +83,14 @@ END //
 DELIMITER ;
 
 -- test that insert causes violation to be populated
-INSERT INTO issuer(summons_number)
-VALUES (1);
-INSERT INTO location(summons_number)
-VALUES(2);
-INSERT INTO registration(summons_number)
-values(3);
-INSERT INTO vehicle(summons_number)
-values(4);
+-- INSERT INTO issuer(summons_number)
+-- VALUES (1);
+-- INSERT INTO location(summons_number)
+-- VALUES(2);
+-- INSERT INTO registration(summons_number)
+-- values(3);
+-- INSERT INTO vehicle(summons_number)
+-- values(4);
 
-SELECT * FROM violation;
+-- SELECT * FROM violation;
 
