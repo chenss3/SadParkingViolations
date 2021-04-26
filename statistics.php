@@ -124,6 +124,46 @@ include_once('conn.php');
             </div> 
         </div> 
     </div>
+    <div>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart3);
+
+            function drawChart3() {
+
+                var data = google.visualization.arrayToDataTable([
+                ['Vehicle Make', 'Count'],
+
+                <?php
+                    $sql = "CALL get_all_vehicle_makes()";
+                    foreach ($dbo->query($sql) as $chart) {
+                        echo"['".$chart['vehicle_make']."',".$chart['count']."],";
+                    }
+                ?>
+                ]);
+
+                var options = {
+                    colors: ['#218B82', '#9AD9DB', '#E5DBD9', '#98D4BB', '#EB96AA', '#B8E0F6', '#A4CCE3', '#37667E', '#DEC4D6', '#7B92AA']
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+                chart.draw(data, options);
+            }
+        </script>
+        <div id="piechart3" style="width: 900px; height: 500px; position: relative; top: 80px"></div>
+    </div>
+    <div class="main" text-align="right">
+        <div id="box1">
+        <div class="police-image" style="position: absolute; top: 1150px; left: 800px">
+            <img src="statistics-teal.png" height=480px>
+        </div>
+        <div class="centerblock">
+            <div class="square" style="position: absolute; background-color: #fff; top: 1150px; left: 370px; width:500px; height: 350px; border-radius: 10px;">
+                <h4 style="font-size: 30px; position: absolute; top: 130px"><b>Top 10 Car Makes with Frequent Parking Violations</b></h4>
+            </div> 
+        </div> 
+    </div>
   </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
