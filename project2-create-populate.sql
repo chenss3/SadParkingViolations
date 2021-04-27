@@ -2,7 +2,7 @@
 -- Sophia.s.chen@vanderbilt.edu and jack.s.walton@vanderbilt.edu
 -- Project 2 Part 2
 
--- Creates database
+-- ------------------------CREATE DATABASE --------------------------------------------
 DROP DATABASE IF EXISTS parkingviolations;
 CREATE DATABASE parkingviolations;
 USE parkingviolations;
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS ParkingViolationsMegaTable(summons_number BIGINT,
 -- C://wamp64/www/SadParkingViolations/jack-project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv
 -- '/Applications/MAMP/htdocs/Project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
 
--- Loads the data
+-- -------------------------------- LOAD THE DATA ----------------------------------------------
 LOAD DATA LOCAL INFILE 'C://wamp64/www/SadParkingViolations/jack-project2/Parking_Violations_Issued_-_Fiscal_Year_2017.csv' 
 INTO TABLE ParkingViolationsMegaTable
 FIELDS TERMINATED BY ',' 
@@ -64,7 +64,7 @@ ESCAPED BY "\\"
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-
+-- --------------------------------- CREATE THE TABLES ---------------------------------------
 
 -- violation
 DROP TABLE IF EXISTS violation;
@@ -165,7 +165,7 @@ CREATE TABLE issuer (
             ON UPDATE CASCADE
 ) ENGINE=INNODB;
 
--- populate the tables. 
+-- ------------------------------------ POPULATE THE TABLES -----------------------------------
 INSERT INTO violation
 SELECT DISTINCT summons_number,
 	violation_code,
@@ -223,6 +223,8 @@ SELECT DISTINCT summons_number,
 	issuer_command,
 	issuer_squad
 FROM ParkingViolationsMegaTable;
+
+-- --------------------------------------- TEST DATABASE -------------------------------------------------
 
 -- Check the counts of each table
 -- SELECT COUNT(*) FROM ParkingViolationsMegaTable;
