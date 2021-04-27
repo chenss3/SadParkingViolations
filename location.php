@@ -227,7 +227,7 @@
             <div class="card">
                 <div class="card-body">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locationaddmodal" style="background-color: #8EA4C8; border: none">
-                    Add Data
+                    Add Location Data
                 </button>
                 </div>
             </div>
